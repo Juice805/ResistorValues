@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01ABBED1CE69C3700FEF42F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01ABBEC1CE69C3700FEF42F /* iAd.framework */; };
 		D0618C551CE6564C00449469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C541CE6564C00449469 /* AppDelegate.swift */; };
 		D0618C571CE6564C00449469 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C561CE6564C00449469 /* MainView.swift */; };
 		D0618C5A1CE6564C00449469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0618C581CE6564C00449469 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D01ABBEC1CE69C3700FEF42F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		D0618C511CE6564C00449469 /* Resistor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resistor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0618C541CE6564C00449469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0618C561CE6564C00449469 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D01ABBED1CE69C3700FEF42F /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +82,7 @@
 		D0618C481CE6564C00449469 = {
 			isa = PBXGroup;
 			children = (
+				D01ABBEC1CE69C3700FEF42F /* iAd.framework */,
 				D0618C531CE6564C00449469 /* Resistor */,
 				D0618C681CE6564D00449469 /* ResistorTests */,
 				D0618C731CE6564D00449469 /* ResistorUITests */,
@@ -489,6 +493,7 @@
 				D0618C7B1CE6564D00449469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0618C7C1CE6564D00449469 /* Build configuration list for PBXNativeTarget "ResistorTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +502,7 @@
 				D0618C7E1CE6564D00449469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0618C7F1CE6564D00449469 /* Build configuration list for PBXNativeTarget "ResistorUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +511,7 @@
 				D0618C811CE6564D00449469 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
