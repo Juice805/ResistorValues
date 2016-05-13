@@ -27,6 +27,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-YF-NGg">
                                 <rect key="frame" x="0.0" y="251" width="414" height="404"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
+                                <rect key="frame" x="20" y="177" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQR-p8-TlS">
+                                <rect key="frame" x="47" y="686" width="320" height="66"/>
+                            </adBannerView>
                             <pickerView contentMode="scaleToFill" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="260" width="414" height="385"/>
                                 <userDefinedRuntimeAttributes>
@@ -39,15 +48,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
-                                <rect key="frame" x="20" y="177" width="374" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQR-p8-TlS">
-                                <rect key="frame" x="47" y="686" width="320" height="50"/>
-                            </adBannerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -56,7 +56,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="UQR-p8-TlS" secondAttribute="trailing" id="5bm-D4-Lnc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O8d-YF-NGg" secondAttribute="trailing" constant="-20" id="9yO-iz-lKq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="REG-Cb-ehb" secondAttribute="trailing" constant="-20" id="DKM-If-C3A"/>
-                            <constraint firstItem="O8d-YF-NGg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dy4-wx-A0O"/>
+                            <constraint firstItem="O8d-YF-NGg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Dy4-wx-A0O"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="KgI-oq-Wdy"/>
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OEP-fH-nuZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UQR-p8-TlS" secondAttribute="bottom" id="R6f-kb-E9L"/>

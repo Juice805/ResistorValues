@@ -21,8 +21,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-ky-VZj">
                                 <rect key="frame" x="0.0" y="269" width="414" height="198"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl4-wK-6GM">
-                                <rect key="frame" x="123" y="56" width="168" height="75"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl4-wK-6GM">
+                                <rect key="frame" x="123" y="70" width="168" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,10 +30,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Cl4-wK-6GM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9SZ-my-W3H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GZA-ky-VZj" secondAttribute="trailing" constant="-20" id="CG1-x4-tSW"/>
+                            <constraint firstItem="Cl4-wK-6GM" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="Fw2-oD-h8o"/>
                             <constraint firstItem="GZA-ky-VZj" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="XBg-v5-W1L"/>
                             <constraint firstItem="GZA-ky-VZj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lWH-36-eqY"/>
-                            <constraint firstItem="GZA-ky-VZj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qq1-YD-ion"/>
+                            <constraint firstItem="GZA-ky-VZj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="30" id="qq1-YD-ion"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
