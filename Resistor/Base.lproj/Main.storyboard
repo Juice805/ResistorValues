@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainView" customModule="Resistor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1.00kΩ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="9V8-w8-ohf">
+                                <rect key="frame" x="20" y="70" width="374" height="99"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="73"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-YF-NGg">
+                                <rect key="frame" x="0.0" y="251" width="414" height="404"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="260" width="414" height="385"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="V08-fs-p73"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
+                                <rect key="frame" x="20" y="177" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="O8d-YF-NGg" secondAttribute="trailing" constant="-20" id="9yO-iz-lKq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="REG-Cb-ehb" secondAttribute="trailing" constant="-20" id="DKM-If-C3A"/>
+                            <constraint firstItem="O8d-YF-NGg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dy4-wx-A0O"/>
+                            <constraint firstItem="O8d-YF-NGg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="KgI-oq-Wdy"/>
+                            <constraint firstItem="REG-Cb-ehb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OEP-fH-nuZ"/>
+                            <constraint firstItem="O8d-YF-NGg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tgb-wJ-whV"/>
+                            <constraint firstItem="9V8-w8-ohf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="UNS-Gi-Etn"/>
+                            <constraint firstItem="PEj-cm-Hno" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UrG-48-xl6"/>
+                            <constraint firstItem="REG-Cb-ehb" firstAttribute="centerY" secondItem="O8d-YF-NGg" secondAttribute="centerY" id="XP6-wv-34d"/>
+                            <constraint firstItem="9V8-w8-ohf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dzi-lJ-0Lg"/>
+                            <constraint firstItem="PEj-cm-Hno" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="e5z-bU-dRT"/>
+                            <constraint firstItem="REG-Cb-ehb" firstAttribute="height" secondItem="O8d-YF-NGg" secondAttribute="height" id="fXO-6W-8gn"/>
+                            <constraint firstItem="PEj-cm-Hno" firstAttribute="top" secondItem="9V8-w8-ohf" secondAttribute="bottom" id="gdf-Un-sJf"/>
+                            <constraint firstItem="PEj-cm-Hno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hdl-f8-fND"/>
+                            <constraint firstItem="9V8-w8-ohf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tA0-Wz-dSd"/>
+                            <constraint firstItem="O8d-YF-NGg" firstAttribute="top" secondItem="9V8-w8-ohf" secondAttribute="bottom" constant="83" id="trr-Xk-Tuc"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="trr-Xk-Tuc"/>
+                                <exclude reference="fXO-6W-8gn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="ResistorImage" destination="O8d-YF-NGg" id="TjP-Mi-Qvf"/>
+                        <outlet property="resistanceLabel" destination="9V8-w8-ohf" id="Jwg-cy-MWk"/>
+                        <outlet property="toleranceLabel" destination="PEj-cm-Hno" id="Mdd-rd-ePJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="349"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Resistor" width="145" height="50"/>
+    </resources>
+</document>
