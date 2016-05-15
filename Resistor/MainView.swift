@@ -310,10 +310,16 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                     break
                 }
                 
-                var number = Double.init(newString.substringToIndex(newString.endIndex.predecessor()))!
+                var number = Double.init(newString.substringToIndex(newString.endIndex.predecessor()))
+                
+                if (number == nil) {
+                    self.presentViewController(alert, animated: true) {}
+                    calculateResistance()
+                    return
+                }
                 
                 while (number >= 10) {
-                    number /= 10
+                    number! /= 10
                     count += 1
                 }
                 
@@ -323,16 +329,21 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                     count = 10
                 }
                 
-                resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
-                
                 if number == 10 {
                     resistancePicker.selectRow(0, inComponent: 2, animated: true)
                     resistancePicker.selectRow(0, inComponent: 3, animated: true)
+                } else if number < 1 {
+                    number! *= 100
+                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
+                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+                    count -= 1
                 } else {
-                    number *= 10
-                    resistancePicker.selectRow(Int(number/10)-1, inComponent: 1, animated: true)
-                    resistancePicker.selectRow(Int(round(number%10)), inComponent: 3, animated: true)
+                    number! *= 10
+                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
+                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
                 }
+                
+                resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
                 
             } else {
                 self.presentViewController(alert, animated: true) {}
