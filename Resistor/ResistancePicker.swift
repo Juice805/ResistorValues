@@ -23,4 +23,12 @@ class ResistancePicker: UIPickerView {
         }
         
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        resignFirstResponder()
+        self.endEditing(true)
+    }
+    
+    
+    
 }

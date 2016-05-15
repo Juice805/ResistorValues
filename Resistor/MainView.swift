@@ -9,15 +9,10 @@
 import UIKit
 import AVFoundation
 
-class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     let valueStipe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
     let toleranceStipe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
-    
-    var bandOne: Int = 1
-    var bandTwo: Int = 0
-    var bandThree: Int = 0
-    var bandFour: Int = 0
     
     @IBOutlet weak var ResistorImage: UIImageView!
     
@@ -26,6 +21,8 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var toleranceLabel: UILabel!
 
     @IBOutlet weak var resistancePicker: ResistancePicker!
+    
+    @IBOutlet weak var resistanceField: LongPressTextField!
     
     var imageSize: CGRect = CGRect()
     
@@ -37,8 +34,13 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         resistancePicker.autoresizesSubviews = true;
         resistancePicker.frame.size.height = imageSize.height
-        
+                
         calculateResistance()
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UIKeyboardWillShowNotification", object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UIKeyboardWillHideNotification", object: nil)
         
     }
 
@@ -164,29 +166,16 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        switch component {
-        case 1:
-            bandOne = row + 1
-            break
-        case 3:
-            bandTwo = row
-            break
-        case 4:
-            bandThree = row
-            break
-        case 5:
-            bandFour = row
-            break
-        default:
-            break
-        }
-        
         calculateResistance()
     }
     
     func calculateResistance(){
         
         var resistance: Double = 0
+        let bandOne = resistancePicker.selectedRowInComponent(1) + 1
+        let bandTwo = resistancePicker.selectedRowInComponent(3)
+        let bandThree = resistancePicker.selectedRowInComponent(4)
+        let bandFour = resistancePicker.selectedRowInComponent(5)
         
         resistance += Double(bandOne) * 10
         
@@ -208,11 +197,11 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         }
         
         if (bandThree > 10) {
-            resistanceLabel.text = "\(resistance.format(".2"))" + prefix[count] + "Ω"
+            resistanceField.text = "\(resistance.format(".2"))" + prefix[count] + "Ω"
         } else if (resistance < 10) {
-            resistanceLabel.text = "\(resistance.format(".1"))" + prefix[count] + "Ω"
+            resistanceField.text = "\(resistance.format(".1"))" + prefix[count] + "Ω"
         } else {
-            resistanceLabel.text = "\(resistance.format(".0"))" + prefix[count] + "Ω"
+            resistanceField.text = "\(resistance.format(".0"))" + prefix[count] + "Ω"
         }
         
         
@@ -221,13 +210,159 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         toleranceLabel.text = "± \(toleranceValue[bandFour])% Tolerance"
         
     }
+    
+    @IBOutlet weak var invisEditButton: UIButton!
+    @IBOutlet weak var invisPickerButton: UIButton!
 
-
-}
-
-extension Double {
-    func format(f: String) -> String {
-        return String(format: "%\(f)f", self)
+    @IBAction func editResistance(sender: AnyObject) {
+        resistanceField.becomeFirstResponder()
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func calculateBands(sender: AnyObject) {
+        print("End on Exit")
+        
+        let enteredText = resistanceField.text!.lowercaseString
+        let allowedCharacters = "0123456789.KkGgMmΩ"
+        
+        let alert = UIAlertController(title: "Invalid Entry", message: "", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+        alert.addAction(OKAction)
+        
+        
+        if enteredText.containsOnlyCharactersIn(allowedCharacters) {
+            
+            let newString = enteredText.stringByReplacingOccurrencesOfString("Ω", withString: "")
+            
+            if (newString.countCharactersIn("KkGgMm") == 0) {
+                
+                //no unit specified
+                var number = Double.init(newString)
+                
+                if (number == nil) {
+                    self.presentViewController(alert, animated: true) {}
+                    calculateResistance()
+                    return
+                }
+                
+                var count = 0
+                
+                while (number >= 10) {
+                    number! /= 10
+                    count += 1
+                }
+                
+                if count > 10 {
+                    alert.title = "Too Large"
+                    self.presentViewController(alert, animated: true) {}
+                    count = 10
+                } else if ( number < 0.1 ) {
+                    alert.title = "Too Small"
+                    self.presentViewController(alert, animated: true) {}
+                    number = 0.1
+                }
+                
+                if count == 0 {
+                    if number >= 1 {
+                        resistancePicker.selectRow(10, inComponent: 4, animated: true)
+                    } else {
+                        resistancePicker.selectRow(11, inComponent: 4, animated: true)
+                    }
+                } else {
+                    resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
+                }
+                
+                
+                
+                if number == 10 {
+                    resistancePicker.selectRow(0, inComponent: 2, animated: true)
+                    resistancePicker.selectRow(0, inComponent: 3, animated: true)
+                } else if number < 1 {
+                    number! *= 100
+                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
+                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+                } else {
+                    number! *= 10
+                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
+                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+                }
+                
+                
+            } else if (newString.countCharactersIn("KkGgMm") == 1 && newString.substringFromIndex(newString.endIndex.predecessor()).containsOnlyCharactersIn("KkGgMm")) {
+                
+                var count = 0
+                
+                let unit = newString.substringFromIndex(newString.endIndex.predecessor())
+                
+                switch unit {
+                case "k", "K":
+                    count = 3
+                    break
+                case "m", "M":
+                    count = 6
+                    break
+                case "g", "G":
+                    count = 9
+                    break
+                default:
+                    break
+                }
+                
+                var number = Double.init(newString.substringToIndex(newString.endIndex.predecessor()))!
+                
+                while (number >= 10) {
+                    number /= 10
+                    count += 1
+                }
+                
+                if count > 10 {
+                    alert.title = "Too Large"
+                    self.presentViewController(alert, animated: true) {}
+                    count = 10
+                }
+                
+                resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
+                
+                if number == 10 {
+                    resistancePicker.selectRow(0, inComponent: 2, animated: true)
+                    resistancePicker.selectRow(0, inComponent: 3, animated: true)
+                } else {
+                    number *= 10
+                    resistancePicker.selectRow(Int(number/10)-1, inComponent: 1, animated: true)
+                    resistancePicker.selectRow(Int(round(number%10)), inComponent: 3, animated: true)
+                }
+                
+            } else {
+                self.presentViewController(alert, animated: true) {}
+            }
+            
+        } else {
+            self.presentViewController(alert, animated: true) {}
+        }
+        
+    }
+    
+    @IBAction func revertBands(sender: AnyObject) {
+        calculateResistance()
+        print("End")
+    }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        self.view.endEditing(true)
+    }
+    
+    func keyboardHidden(){
+        invisEditButton.hidden = false
+        invisPickerButton.hidden = true
+    }
+    
+    func keyboardShown(){
+        invisEditButton.hidden = true
+        invisPickerButton.hidden = false
+    }
+
 }
 
