@@ -18,43 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1.00kΩ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="9V8-w8-ohf">
-                                <rect key="frame" x="20" y="70" width="374" height="99"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="73"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-YF-NGg">
                                 <rect key="frame" x="0.0" y="160" width="414" height="512"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="DuS-iL-Lge"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
-                                <rect key="frame" x="20" y="177" width="374" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQR-p8-TlS">
                                 <rect key="frame" x="47" y="686" width="320" height="66"/>
-                            </adBannerView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="165" width="414" height="373"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="1be-sF-A4g"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="V08-fs-p73"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HVd-9W-gh5"/>
                                 </connections>
-                            </pickerView>
+                            </adBannerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="44" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-Lh-77h" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="80"/>
                                 <gestureRecognizers/>
@@ -79,6 +54,28 @@
                                     <action selector="dismissKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GZW-vD-rO4"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
+                                <rect key="frame" x="5" y="197" width="414" height="373"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1be-sF-A4g"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="V08-fs-p73"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
+                                <rect key="frame" x="20" y="131" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -88,10 +85,11 @@
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="leading" secondItem="NTG-Lh-77h" secondAttribute="leading" id="21S-Dw-cY8"/>
                             <constraint firstItem="UQR-p8-TlS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4iK-ht-oU3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UQR-p8-TlS" secondAttribute="trailing" id="5bm-D4-Lnc"/>
+                            <constraint firstItem="NTG-Lh-77h" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="5p1-Vu-rOq"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="trailing" secondItem="NTG-Lh-77h" secondAttribute="trailing" id="6n3-vs-8U7"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="bottom" secondItem="NTG-Lh-77h" secondAttribute="bottom" id="7Ai-lj-EBF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O8d-YF-NGg" secondAttribute="trailing" constant="-20" id="9yO-iz-lKq"/>
-                            <constraint firstItem="REG-Cb-ehb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="D6G-B7-dVM"/>
+                            <constraint firstItem="REG-Cb-ehb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="D6G-B7-dVM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="REG-Cb-ehb" secondAttribute="trailing" constant="-20" id="DKM-If-C3A"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Dy4-wx-A0O"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="leading" secondItem="REG-Cb-ehb" secondAttribute="leading" id="Fwg-Uq-Zq3"/>
@@ -104,21 +102,16 @@
                             <constraint firstItem="NTG-Lh-77h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Syr-zR-Vja"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tgb-wJ-whV"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="top" secondItem="NTG-Lh-77h" secondAttribute="top" id="U5Q-mU-D1G"/>
-                            <constraint firstItem="9V8-w8-ohf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="UNS-Gi-Etn"/>
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uqt-Yt-P3l"/>
                             <constraint firstItem="PEj-cm-Hno" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UrG-48-xl6"/>
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="centerY" secondItem="O8d-YF-NGg" secondAttribute="centerY" id="XP6-wv-34d"/>
-                            <constraint firstItem="9V8-w8-ohf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="atU-8P-v9x"/>
-                            <constraint firstItem="9V8-w8-ohf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="dzi-lJ-0Lg"/>
                             <constraint firstItem="PEj-cm-Hno" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="e5z-bU-dRT"/>
+                            <constraint firstItem="PEj-cm-Hno" firstAttribute="top" secondItem="NTG-Lh-77h" secondAttribute="bottom" constant="3" id="eGu-Oz-FMz"/>
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="height" secondItem="O8d-YF-NGg" secondAttribute="height" id="fXO-6W-8gn"/>
-                            <constraint firstItem="PEj-cm-Hno" firstAttribute="top" secondItem="9V8-w8-ohf" secondAttribute="bottom" id="gdf-Un-sJf"/>
                             <constraint firstItem="PEj-cm-Hno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hdl-f8-fND"/>
+                            <constraint firstItem="REG-Cb-ehb" firstAttribute="top" secondItem="PEj-cm-Hno" secondAttribute="bottom" priority="750" constant="30" id="li5-jb-tbH"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="top" secondItem="REG-Cb-ehb" secondAttribute="top" id="nUk-PJ-QgI"/>
-                            <constraint firstItem="9V8-w8-ohf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tA0-Wz-dSd"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="bottom" secondItem="REG-Cb-ehb" secondAttribute="bottom" id="tFA-yu-oU7"/>
-                            <constraint firstItem="NTG-Lh-77h" firstAttribute="centerY" secondItem="9V8-w8-ohf" secondAttribute="centerY" id="tfa-Ad-jpu"/>
-                            <constraint firstItem="O8d-YF-NGg" firstAttribute="top" secondItem="9V8-w8-ohf" secondAttribute="bottom" constant="83" id="trr-Xk-Tuc"/>
                             <constraint firstItem="NTG-Lh-77h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="uH8-VS-NAR"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="top" secondItem="REG-Cb-ehb" secondAttribute="top" id="wKq-YJ-pW0"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="bottom" secondItem="REG-Cb-ehb" secondAttribute="bottom" id="wVA-db-LJP"/>
@@ -128,7 +121,6 @@
                                 <exclude reference="1vA-O4-xTB"/>
                                 <exclude reference="uH8-VS-NAR"/>
                                 <exclude reference="Dy4-wx-A0O"/>
-                                <exclude reference="trr-Xk-Tuc"/>
                                 <exclude reference="wKq-YJ-pW0"/>
                                 <exclude reference="wVA-db-LJP"/>
                                 <exclude reference="fXO-6W-8gn"/>
@@ -138,10 +130,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="ResistorImage" destination="O8d-YF-NGg" id="TjP-Mi-Qvf"/>
+                        <outlet property="iAdBanner" destination="UQR-p8-TlS" id="1zt-P4-MYf"/>
                         <outlet property="invisEditButton" destination="DMr-3m-c5y" id="KyB-7p-Gfk"/>
                         <outlet property="invisPickerButton" destination="xJN-cH-YO9" id="pCn-vp-gXf"/>
                         <outlet property="resistanceField" destination="NTG-Lh-77h" id="sar-g6-1JP"/>
-                        <outlet property="resistanceLabel" destination="9V8-w8-ohf" id="Jwg-cy-MWk"/>
                         <outlet property="resistancePicker" destination="REG-Cb-ehb" id="bor-x3-0TW"/>
                         <outlet property="toleranceLabel" destination="PEj-cm-Hno" id="Mdd-rd-ePJ"/>
                     </connections>

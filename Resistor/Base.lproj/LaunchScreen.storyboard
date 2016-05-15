@@ -21,22 +21,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="GZA-ky-VZj">
                                 <rect key="frame" x="0.0" y="269" width="414" height="198"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl4-wK-6GM">
-                                <rect key="frame" x="123" y="70" width="168" height="75"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ω" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl4-wK-6GM">
+                                <rect key="frame" x="106" y="58" width="202" height="145"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GZA-ky-VZj" firstAttribute="top" secondItem="Cl4-wK-6GM" secondAttribute="bottom" priority="750" constant="60" id="86T-G0-YbH"/>
                             <constraint firstItem="Cl4-wK-6GM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9SZ-my-W3H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GZA-ky-VZj" secondAttribute="trailing" constant="-20" id="CG1-x4-tSW"/>
                             <constraint firstItem="Cl4-wK-6GM" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="Fw2-oD-h8o"/>
+                            <constraint firstItem="Cl4-wK-6GM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="25" id="LT9-Cd-vJD"/>
                             <constraint firstItem="GZA-ky-VZj" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="XBg-v5-W1L"/>
                             <constraint firstItem="GZA-ky-VZj" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lWH-36-eqY"/>
                             <constraint firstItem="GZA-ky-VZj" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="30" id="qq1-YD-ion"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fw2-oD-h8o"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>

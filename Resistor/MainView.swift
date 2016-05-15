@@ -8,21 +8,22 @@
 
 import UIKit
 import AVFoundation
+import iAd
 
-class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
+class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate {
     
     let valueStipe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
     let toleranceStipe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
     
     @IBOutlet weak var ResistorImage: UIImageView!
-    
-    @IBOutlet weak var resistanceLabel: UILabel!
-    
+        
     @IBOutlet weak var toleranceLabel: UILabel!
 
     @IBOutlet weak var resistancePicker: ResistancePicker!
     
     @IBOutlet weak var resistanceField: LongPressTextField!
+    
+    @IBOutlet weak var iAdBanner: ADBannerView!
     
     var imageSize: CGRect = CGRect()
     
@@ -34,13 +35,18 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         resistancePicker.autoresizesSubviews = true;
         resistancePicker.frame.size.height = imageSize.height
+        
+        resistancePicker.selectRow(2, inComponent: 5, animated: false)
                 
         calculateResistance()
-        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UIKeyboardWillShowNotification", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UIKeyboardWillHideNotification", object: nil)
+        
+        if !iAdBanner.bannerLoaded {
+            iAdBanner.hidden = true
+        }
         
     }
 
@@ -385,6 +391,14 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     func keyboardShown(){
         invisEditButton.hidden = true
         invisPickerButton.hidden = false
+    }
+    
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        iAdBanner.hidden = false
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        iAdBanner.hidden = true
     }
 
 }
