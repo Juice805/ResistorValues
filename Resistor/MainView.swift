@@ -223,7 +223,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     
     @IBAction func calculateBands(sender: AnyObject) {
-        print("End on Exit")
         
         let enteredText = resistanceField.text!.lowercaseString
         let allowedCharacters = "0123456789.KkGgMmΩ"
@@ -347,7 +346,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     @IBAction func revertBands(sender: AnyObject) {
         calculateResistance()
-        print("End")
     }
     
     @IBAction func dismissKeyboard(sender: AnyObject) {
