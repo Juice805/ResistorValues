@@ -293,18 +293,19 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             } else if (newString.countCharactersIn("KkGgMm") == 1 && newString.substringFromIndex(newString.endIndex.predecessor()).containsOnlyCharactersIn("KkGgMm")) {
                 
                 var count = 0
+                var exp = 0
                 
                 let unit = newString.substringFromIndex(newString.endIndex.predecessor())
                 
                 switch unit {
                 case "k", "K":
-                    count = 3
+                    exp = 3
                     break
                 case "m", "M":
-                    count = 6
+                    exp = 6
                     break
                 case "g", "G":
-                    count = 9
+                    exp = 9
                     break
                 default:
                     break
@@ -316,8 +317,10 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                     self.presentViewController(alert, animated: true) {}
                     calculateResistance()
                     return
+                } else {
+                    number! *= pow(10.0, Double(exp))
                 }
-                
+                                
                 while (number >= 10) {
                     number! /= 10
                     count += 1
@@ -327,23 +330,34 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                     alert.title = "Too Large"
                     self.presentViewController(alert, animated: true) {}
                     count = 10
+                } else if ( number! < 0.1 ) {
+                    alert.title = "Too Small"
+                    self.presentViewController(alert, animated: true) {}
+                    number! = 0.1
                 }
                 
-                if number == 10 {
+                if count == 0 {
+                    if number! >= 1 {
+                        resistancePicker.selectRow(10, inComponent: 4, animated: true)
+                    } else {
+                        resistancePicker.selectRow(11, inComponent: 4, animated: true)
+                    }
+                } else {
+                    resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
+                }
+                
+                if number! == 10 {
                     resistancePicker.selectRow(0, inComponent: 2, animated: true)
                     resistancePicker.selectRow(0, inComponent: 3, animated: true)
-                } else if number < 1 {
+                } else if number! < 1 {
                     number! *= 100
                     resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
                     resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
-                    count -= 1
                 } else {
                     number! *= 10
                     resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
                     resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
                 }
-                
-                resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
                 
             } else {
                 self.presentViewController(alert, animated: true) {}
