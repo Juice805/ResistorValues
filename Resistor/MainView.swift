@@ -402,4 +402,3 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
 
 }
-

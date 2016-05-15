@@ -18,18 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-YF-NGg">
-                                <rect key="frame" x="0.0" y="160" width="414" height="512"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="DuS-iL-Lge"/>
-                                </constraints>
-                            </imageView>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQR-p8-TlS">
-                                <rect key="frame" x="47" y="686" width="320" height="66"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMr-3m-c5y">
+                                <rect key="frame" x="161" y="70" width="102" height="38"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HVd-9W-gh5"/>
+                                    <outletCollection property="gestureRecognizers" destination="Tma-Ch-IBb" appends="YES" id="eTL-re-eTj"/>
                                 </connections>
-                            </adBannerView>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJN-cH-YO9">
+                                <rect key="frame" x="268" y="535" width="108" height="88"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GZW-vD-rO4"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="44" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-Lh-77h" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="80"/>
                                 <gestureRecognizers/>
@@ -41,21 +42,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SXV-jz-LNs"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMr-3m-c5y">
-                                <rect key="frame" x="161" y="70" width="102" height="38"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Tma-Ch-IBb" appends="YES" id="eTL-re-eTj"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJN-cH-YO9">
-                                <rect key="frame" x="166" y="442" width="108" height="88"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GZW-vD-rO4"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
-                                <rect key="frame" x="5" y="197" width="414" height="373"/>
+                                <rect key="frame" x="0.0" y="181" width="414" height="373"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="1be-sF-A4g"/>
@@ -70,12 +58,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
                                 </connections>
                             </pickerView>
+                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQR-p8-TlS">
+                                <rect key="frame" x="47" y="686" width="320" height="66"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HVd-9W-gh5"/>
+                                </connections>
+                            </adBannerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
                                 <rect key="frame" x="20" y="131" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-YF-NGg">
+                                <rect key="frame" x="0.0" y="160" width="414" height="512"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="DuS-iL-Lge"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
