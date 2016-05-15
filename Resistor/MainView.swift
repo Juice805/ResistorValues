@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -24,11 +25,21 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var toleranceLabel: UILabel!
 
+    @IBOutlet weak var resistancePicker: ResistancePicker!
+    
+    var imageSize: CGRect = CGRect()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        imageSize = AVMakeRectWithAspectRatioInsideRect(ResistorImage.image!.size, ResistorImage.frame)
+        
+        resistancePicker.autoresizesSubviews = true;
+        resistancePicker.frame.size.height = imageSize.height
+        
         calculateResistance()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,34 +52,34 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         
-        let imageWidth = ResistorImage.bounds.width
+        let imageWidth = self.imageSize.width
         
         switch component {
         case 0: // spacer
             return 0.15 * imageWidth
         case 1: // first stripe
-            return 0.1 * imageWidth
+            return 0.10 * imageWidth
         case 2: //spacer
-            return 0.08 * imageWidth
+            return 0.07 * imageWidth
         case 3, 4, 5: // 2-4 stripes
-            return 0.105 * imageWidth
+            return 0.09 * imageWidth
         case 6: //spacer
-            return 0.35 * imageWidth
+            return 0.4 * imageWidth
         default:
-            return 0.2 * imageWidth
+            return 0 * imageWidth
         }
         
     }
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         
-        let imageHeight = ResistorImage.bounds.height
+        let imageHeight = self.imageSize.height
         
         switch component {
         case 1: // first stripe
-            return 2.7 * imageHeight
+            return 1.2 * imageHeight
         case 3, 4, 5: // 2-4 stripes
-            return 1 * imageHeight
+            return 0.8 * imageHeight
         default:
             return 0
         }
@@ -79,8 +90,8 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //returns view containing item in picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         
-        let imageHeight = ResistorImage.bounds.height
-        let imageWidth = ResistorImage.bounds.width
+        let imageHeight = self.imageSize.height
+        let imageWidth = self.imageSize.width
         
         let barWidth = imageWidth * 0.055
         
@@ -88,12 +99,12 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
         switch component {
         case 1:
-            let barHeight = imageHeight * 2.4
+            let barHeight = imageHeight * 0.85
             
             frame = CGRect(x: -barWidth/2, y: -barHeight/2, width: barWidth, height: barHeight)
             break
         case 3, 4, 5:
-            let barHeight = imageHeight * 1.82
+            let barHeight = imageHeight * 0.64
             
             frame = CGRect(x: -barWidth/2, y: -barHeight/2, width: barWidth, height: barHeight)
             break
