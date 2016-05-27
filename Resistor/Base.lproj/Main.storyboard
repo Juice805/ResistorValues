@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -33,21 +33,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UQR-p8-TlS">
-                                <rect key="frame" x="47" y="686" width="320" height="66"/>
-                                <variation key="heightClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="601" width="343" height="66"/>
-                                </variation>
-                                <variation key="widthClass=regular" misplaced="YES">
-                                    <rect key="frame" x="20" y="309" width="627" height="66"/>
-                                </variation>
-                                <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="601" width="343" height="66"/>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HVd-9W-gh5"/>
-                                </connections>
-                            </adBannerView>
                             <pickerView contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="5" y="107" width="383" height="373"/>
                                 <gestureRecognizers/>
@@ -95,11 +80,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="UQR-p8-TlS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0pR-kD-i5t"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NTG-Lh-77h" secondAttribute="trailing" constant="-20" id="1vA-O4-xTB"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="leading" secondItem="NTG-Lh-77h" secondAttribute="leading" id="21S-Dw-cY8"/>
-                            <constraint firstItem="UQR-p8-TlS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4iK-ht-oU3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UQR-p8-TlS" secondAttribute="trailing" id="5bm-D4-Lnc"/>
                             <constraint firstItem="NTG-Lh-77h" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="5p1-Vu-rOq"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="trailing" secondItem="NTG-Lh-77h" secondAttribute="trailing" id="6n3-vs-8U7"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="bottom" secondItem="NTG-Lh-77h" secondAttribute="bottom" id="7Ai-lj-EBF"/>
@@ -113,7 +95,6 @@
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="KgI-oq-Wdy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NTG-Lh-77h" secondAttribute="trailing" id="MiD-2N-VA9"/>
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OEP-fH-nuZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="UQR-p8-TlS" secondAttribute="bottom" id="R6f-kb-E9L"/>
                             <constraint firstItem="NTG-Lh-77h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Syr-zR-Vja"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tgb-wJ-whV"/>
                             <constraint firstItem="DMr-3m-c5y" firstAttribute="top" secondItem="NTG-Lh-77h" secondAttribute="top" id="U5Q-mU-D1G"/>
@@ -146,7 +127,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ResistorImage" destination="O8d-YF-NGg" id="TjP-Mi-Qvf"/>
-                        <outlet property="iAdBanner" destination="UQR-p8-TlS" id="1zt-P4-MYf"/>
                         <outlet property="invisEditButton" destination="DMr-3m-c5y" id="O1Q-v5-b5T"/>
                         <outlet property="invisPickerButton" destination="xJN-cH-YO9" id="EZA-AM-Wbi"/>
                         <outlet property="resistanceField" destination="NTG-Lh-77h" id="sar-g6-1JP"/>

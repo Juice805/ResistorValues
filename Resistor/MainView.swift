@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import iAd
 
-class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate {
+class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
     
     let valueStipe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
     let toleranceStipe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
@@ -22,8 +22,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBOutlet weak var resistancePicker: ResistancePicker!
     
     @IBOutlet weak var resistanceField: LongPressTextField!
-    
-    @IBOutlet weak var iAdBanner: ADBannerView!
     
     @IBOutlet weak var invisPickerButton: UIButton!
     
@@ -43,10 +41,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UIKeyboardWillHideNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UITextFieldTextDidEndEditingNotification", object: nil)
-        
-        if !iAdBanner.bannerLoaded {
-            iAdBanner.hidden = true
-        }
         
         self.view.bringSubviewToFront(invisEditButton)
         self.view.bringSubviewToFront(invisPickerButton)
@@ -380,10 +374,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     func keyboardShown(){
         invisEditButton.hidden = true
         invisPickerButton.hidden = false
-    }
-    
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        iAdBanner.hidden = false
     }
     
 }
