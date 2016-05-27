@@ -15,17 +15,20 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Resistor" translatesAutoresizingMaskIntoConstraints="NO" id="O8d-YF-NGg">
-                                <rect key="frame" x="0.0" y="160" width="414" height="512"/>
+                                <rect key="frame" x="-4" y="160" width="383" height="512"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="DuS-iL-Lge"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="± 0.05% Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEj-cm-Hno">
-                                <rect key="frame" x="20" y="131" width="374" height="30"/>
+                                <rect key="frame" x="16" y="131" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="M7Z-T6-lcS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -36,25 +39,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="HVd-9W-gh5"/>
                                 </connections>
                             </adBannerView>
-                            <pickerView contentMode="scaleToFill" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="181" width="414" height="373"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="1be-sF-A4g"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
-                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="V08-fs-p73"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="44" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-Lh-77h" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="80"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="qfS-W1-W2w"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="75"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
@@ -76,6 +66,22 @@
                                     <outletCollection property="gestureRecognizers" destination="Tma-Ch-IBb" appends="YES" id="eTL-re-eTj"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" misplaced="YES" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REG-Cb-ehb" customClass="ResistancePicker" customModule="Resistor" customModuleProvider="target">
+                                <rect key="frame" x="5" y="107" width="383" height="373"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="1be-sF-A4g"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectorColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="V08-fs-p73"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="o5d-25-jWd"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -110,6 +116,7 @@
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="height" secondItem="O8d-YF-NGg" secondAttribute="height" id="fXO-6W-8gn"/>
                             <constraint firstItem="PEj-cm-Hno" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hdl-f8-fND"/>
                             <constraint firstItem="REG-Cb-ehb" firstAttribute="top" secondItem="PEj-cm-Hno" secondAttribute="bottom" priority="750" constant="30" id="li5-jb-tbH"/>
+                            <constraint firstItem="REG-Cb-ehb" firstAttribute="width" secondItem="O8d-YF-NGg" secondAttribute="width" id="m3v-cQ-g1A"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="top" secondItem="REG-Cb-ehb" secondAttribute="top" id="nUk-PJ-QgI"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="bottom" secondItem="REG-Cb-ehb" secondAttribute="bottom" id="tFA-yu-oU7"/>
                             <constraint firstItem="NTG-Lh-77h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="uH8-VS-NAR"/>
@@ -120,14 +127,14 @@
                             <mask key="constraints">
                                 <exclude reference="1vA-O4-xTB"/>
                                 <exclude reference="uH8-VS-NAR"/>
+                                <exclude reference="fXO-6W-8gn"/>
                                 <exclude reference="Dy4-wx-A0O"/>
                                 <exclude reference="wKq-YJ-pW0"/>
                                 <exclude reference="wVA-db-LJP"/>
-                                <exclude reference="fXO-6W-8gn"/>
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="ResistorImage" destination="O8d-YF-NGg" id="TjP-Mi-Qvf"/>
                         <outlet property="iAdBanner" destination="UQR-p8-TlS" id="1zt-P4-MYf"/>

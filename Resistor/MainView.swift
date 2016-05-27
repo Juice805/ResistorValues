@@ -31,10 +31,13 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        ResistorImage.image?.size.height
+        
         imageSize = AVMakeRectWithAspectRatioInsideRect(ResistorImage.image!.size, ResistorImage.frame)
         
         resistancePicker.autoresizesSubviews = true;
         resistancePicker.frame.size.height = imageSize.height
+        ResistorImage.sizeToFit()
         
         resistancePicker.selectRow(2, inComponent: 5, animated: false)
                 
@@ -47,7 +50,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         if !iAdBanner.bannerLoaded {
             iAdBanner.hidden = true
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,34 +62,28 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         
-        let imageWidth = self.imageSize.width
-        
         switch component {
         case 0: // spacer
-            return 0.15 * imageWidth
-        case 1: // first stripe
-            return 0.10 * imageWidth
+            return 0.15 * self.view.bounds.width
         case 2: //spacer
-            return 0.07 * imageWidth
-        case 3, 4, 5: // 2-4 stripes
-            return 0.09 * imageWidth
+            return 0.035 * self.view.bounds.width
+        case 1, 3, 4, 5: // 2-4 stripes
+            return 0.1 * self.view.bounds.width
         case 6: //spacer
-            return 0.4 * imageWidth
+            return 0.25 * self.view.bounds.width
         default:
-            return 0 * imageWidth
+            return 0 * self.view.bounds.width
         }
-        
     }
+    
     
     func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         
-        let imageHeight = self.imageSize.height
-        
         switch component {
         case 1: // first stripe
-            return 1.2 * imageHeight
+            return 0.46 * self.view.bounds.width
         case 3, 4, 5: // 2-4 stripes
-            return 0.8 * imageHeight
+            return 0.46 * self.view.bounds.width
         default:
             return 0
         }
@@ -98,21 +94,18 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     //returns view containing item in picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         
-        let imageHeight = self.imageSize.height
-        let imageWidth = self.imageSize.width
-        
-        let barWidth = imageWidth * 0.055
+        let barWidth = self.view.bounds.width * 0.055
         
         var frame: CGRect
         
         switch component {
         case 1:
-            let barHeight = imageHeight * 0.85
+            let barHeight = self.view.bounds.width * 0.315
             
             frame = CGRect(x: -barWidth/2, y: -barHeight/2, width: barWidth, height: barHeight)
             break
         case 3, 4, 5:
-            let barHeight = imageHeight * 0.64
+            let barHeight = self.view.bounds.width * 0.243
             
             frame = CGRect(x: -barWidth/2, y: -barHeight/2, width: barWidth, height: barHeight)
             break
@@ -397,8 +390,4 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         iAdBanner.hidden = false
     }
     
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
-        iAdBanner.hidden = true
-    }
-
 }
