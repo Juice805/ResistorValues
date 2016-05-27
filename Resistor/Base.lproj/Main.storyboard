@@ -147,8 +147,8 @@
                     <connections>
                         <outlet property="ResistorImage" destination="O8d-YF-NGg" id="TjP-Mi-Qvf"/>
                         <outlet property="iAdBanner" destination="UQR-p8-TlS" id="1zt-P4-MYf"/>
-                        <outlet property="invisEditButton" destination="DMr-3m-c5y" id="KyB-7p-Gfk"/>
-                        <outlet property="invisPickerButton" destination="xJN-cH-YO9" id="pCn-vp-gXf"/>
+                        <outlet property="invisEditButton" destination="DMr-3m-c5y" id="O1Q-v5-b5T"/>
+                        <outlet property="invisPickerButton" destination="xJN-cH-YO9" id="EZA-AM-Wbi"/>
                         <outlet property="resistanceField" destination="NTG-Lh-77h" id="sar-g6-1JP"/>
                         <outlet property="resistancePicker" destination="REG-Cb-ehb" id="bor-x3-0TW"/>
                         <outlet property="toleranceLabel" destination="PEj-cm-Hno" id="Mdd-rd-ePJ"/>

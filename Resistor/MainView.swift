@@ -25,31 +25,31 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     @IBOutlet weak var iAdBanner: ADBannerView!
     
-    var imageSize: CGRect = CGRect()
+    @IBOutlet weak var invisPickerButton: UIButton!
+    
+    @IBOutlet weak var invisEditButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        
-        ResistorImage.image?.size.height
-        
-        imageSize = AVMakeRectWithAspectRatioInsideRect(ResistorImage.image!.size, ResistorImage.frame)
-        
-        resistancePicker.autoresizesSubviews = true;
-        resistancePicker.frame.size.height = imageSize.height
-        ResistorImage.sizeToFit()
         
         resistancePicker.selectRow(2, inComponent: 5, animated: false)
                 
         calculateResistance()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UIKeyboardWillShowNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UITextFieldTextDidBeginEditingNotification", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UIKeyboardWillHideNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UITextFieldTextDidEndEditingNotification", object: nil)
         
         if !iAdBanner.bannerLoaded {
             iAdBanner.hidden = true
         }
+        
+        invisEditButton.superview?.bringSubviewToFront(invisEditButton)
+        invisPickerButton.superview?.bringSubviewToFront(invisPickerButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +94,7 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     //returns view containing item in picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         
-        let barWidth = self.view.bounds.width * 0.055
+        let barWidth = self.view.bounds.width * 0.07
         
         var frame: CGRect
         
@@ -209,9 +209,6 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         toleranceLabel.text = "± \(toleranceValue[bandFour])% Tolerance"
         
     }
-    
-    @IBOutlet weak var invisEditButton: UIButton!
-    @IBOutlet weak var invisPickerButton: UIButton!
 
     @IBAction func editResistance(sender: AnyObject) {
         resistanceField.becomeFirstResponder()
@@ -224,16 +221,15 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func calculateBands(sender: AnyObject) {
         
         let enteredText = resistanceField.text!.lowercaseString
-        let allowedCharacters = "0123456789.KkGgMmΩ"
+        let allowedCharacters = "0123456789.KkGgMmΩω"
         
         let alert = UIAlertController(title: "Invalid Entry", message: "", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
         alert.addAction(OKAction)
         
-        
         if enteredText.containsOnlyCharactersIn(allowedCharacters) {
             
-            let newString = enteredText.stringByReplacingOccurrencesOfString("Ω", withString: "")
+            let newString = enteredText.stringByReplacingOccurrencesOfString("Ω", withString: "").stringByReplacingOccurrencesOfString("ω", withString: "")
             
             if (newString.countCharactersIn("KkGgMm") == 0) {
                 
