@@ -48,8 +48,8 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             iAdBanner.hidden = true
         }
         
-        invisEditButton.superview?.bringSubviewToFront(invisEditButton)
-        invisPickerButton.superview?.bringSubviewToFront(invisPickerButton)
+        self.view.bringSubviewToFront(invisEditButton)
+        self.view.bringSubviewToFront(invisPickerButton)
     }
 
     override func didReceiveMemoryWarning() {
