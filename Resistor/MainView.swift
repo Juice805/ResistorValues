@@ -100,7 +100,7 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         switch component {
         case 1:
-            let barHeight = self.view.bounds.width * 0.315
+            let barHeight = self.view.bounds.width * 0.318
             
             frame = CGRect(x: -barWidth/2, y: -barHeight/2, width: barWidth, height: barHeight)
             break

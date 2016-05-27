@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D01ABBED1CE69C3700FEF42F /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01ABBEC1CE69C3700FEF42F /* iAd.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		D01FA5C01CF80BF40096170B /* UIDeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01FA5BF1CF80BF40096170B /* UIDeviceType.swift */; };
 		D058F6111CE82482002DB071 /* LongPressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058F6101CE82482002DB071 /* LongPressTextField.swift */; };
 		D058F6131CE84405002DB071 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058F6121CE84405002DB071 /* extensions.swift */; };
 		D0618C551CE6564C00449469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C541CE6564C00449469 /* AppDelegate.swift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		D01ABBEC1CE69C3700FEF42F /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		D01FA5BF1CF80BF40096170B /* UIDeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceType.swift; sourceTree = "<group>"; };
 		D058F6101CE82482002DB071 /* LongPressTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongPressTextField.swift; sourceTree = "<group>"; };
 		D058F6121CE84405002DB071 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D0618C511CE6564C00449469 /* Resistor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resistor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +109,6 @@
 			children = (
 				D0618C541CE6564C00449469 /* AppDelegate.swift */,
 				D0618C561CE6564C00449469 /* MainView.swift */,
-				D01FA5BF1CF80BF40096170B /* UIDeviceType.swift */,
 				D0618C821CE677DE00449469 /* ResistancePicker.swift */,
 				D0618C581CE6564C00449469 /* Main.storyboard */,
 				D058F6121CE84405002DB071 /* extensions.swift */,
@@ -276,7 +273,6 @@
 				D058F6131CE84405002DB071 /* extensions.swift in Sources */,
 				D0618C571CE6564C00449469 /* MainView.swift in Sources */,
 				D058F6111CE82482002DB071 /* LongPressTextField.swift in Sources */,
-				D01FA5C01CF80BF40096170B /* UIDeviceType.swift in Sources */,
 				D0618C831CE677DE00449469 /* ResistancePicker.swift in Sources */,
 				D0618C551CE6564C00449469 /* AppDelegate.swift in Sources */,
 			);
