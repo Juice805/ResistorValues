@@ -245,10 +245,12 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 
                 if count > 10 {
                     alert.title = "Too Large"
+                    dismissKeyboard(self)
                     self.presentViewController(alert, animated: true) {}
                     count = 10
                 } else if ( number < 0.1 ) {
                     alert.title = "Too Small"
+                    dismissKeyboard(self)
                     self.presentViewController(alert, animated: true) {}
                     number = 0.1
                 }
@@ -349,10 +351,12 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                 }
                 
             } else {
+                dismissKeyboard(self)
                 self.presentViewController(alert, animated: true) {}
             }
             
         } else {
+            dismissKeyboard(self)
             self.presentViewController(alert, animated: true) {}
         }
         
