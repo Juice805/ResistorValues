@@ -4,7 +4,4 @@
    <FileRef
       location = "container:Resistor.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:ResistorWatch/ResistorWatch.xcodeproj">
-   </FileRef>
 </Workspace>
