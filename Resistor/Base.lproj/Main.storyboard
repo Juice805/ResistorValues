@@ -50,6 +50,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJN-cH-YO9">
+                                <rect key="frame" x="268" y="535" width="108" height="88"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GZW-vD-rO4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMr-3m-c5y">
+                                <rect key="frame" x="149" y="69" width="102" height="38"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Tma-Ch-IBb" appends="YES" id="eTL-re-eTj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4-Band" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu1-j7-lJR">
+                                <rect key="frame" x="149" y="646" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="44" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NTG-Lh-77h" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="80"/>
                                 <gestureRecognizers/>
@@ -64,25 +83,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SXV-jz-LNs"/>
                                 </connections>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJN-cH-YO9">
-                                <rect key="frame" x="268" y="535" width="108" height="88"/>
-                                <connections>
-                                    <action selector="dismissKeyboard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GZW-vD-rO4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMr-3m-c5y">
-                                <rect key="frame" x="161" y="70" width="102" height="38"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Tma-Ch-IBb" appends="YES" id="eTL-re-eTj"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="4-Band" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu1-j7-lJR">
-                                <rect key="frame" x="149" y="646" width="58" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -98,6 +98,7 @@
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="30" id="Dy4-wx-A0O"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="leading" secondItem="REG-Cb-ehb" secondAttribute="leading" id="Fwg-Uq-Zq3"/>
                             <constraint firstItem="xJN-cH-YO9" firstAttribute="trailing" secondItem="REG-Cb-ehb" secondAttribute="trailing" id="I4y-GH-3Ls"/>
+                            <constraint firstItem="DMr-3m-c5y" firstAttribute="bottom" secondItem="PEj-cm-Hno" secondAttribute="bottom" id="Ip7-fk-fP7"/>
                             <constraint firstItem="NTG-Lh-77h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jfz-xE-jRk"/>
                             <constraint firstItem="O8d-YF-NGg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="KgI-oq-Wdy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NTG-Lh-77h" secondAttribute="trailing" id="MiD-2N-VA9"/>
@@ -130,6 +131,7 @@
                                 <exclude reference="Dy4-wx-A0O"/>
                                 <exclude reference="wKq-YJ-pW0"/>
                                 <exclude reference="wVA-db-LJP"/>
+                                <exclude reference="7Ai-lj-EBF"/>
                             </mask>
                         </variation>
                     </view>
@@ -262,6 +264,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="rS4-RZ-LWU" firstAttribute="bottom" secondItem="qO8-Ky-UIi" secondAttribute="bottom" id="0AM-RO-oou"/>
                             <constraint firstItem="rS4-RZ-LWU" firstAttribute="top" secondItem="3rF-Wx-efa" secondAttribute="top" id="1hn-h9-jP0"/>
                             <constraint firstItem="ts9-KE-FMi" firstAttribute="top" secondItem="qO8-Ky-UIi" secondAttribute="bottom" priority="750" constant="30" id="2Bk-ij-r3J"/>
                             <constraint firstItem="cZw-gn-Ukk" firstAttribute="top" secondItem="ts9-KE-FMi" secondAttribute="top" id="3CG-Dw-1fB"/>
@@ -305,6 +308,7 @@
                                 <exclude reference="Td1-M6-VKE"/>
                                 <exclude reference="pO3-A9-ggu"/>
                                 <exclude reference="wif-HO-R4Z"/>
+                                <exclude reference="G4w-Cn-Tet"/>
                             </mask>
                         </variation>
                     </view>
@@ -420,6 +424,7 @@
                         <constraints>
                             <constraint firstItem="YW1-He-OLM" firstAttribute="top" secondItem="nOb-VH-5pv" secondAttribute="top" id="0LQ-Gu-XYO"/>
                             <constraint firstItem="9xE-ev-8FU" firstAttribute="leading" secondItem="GNS-Kg-c9i" secondAttribute="leadingMargin" id="3Qa-j2-Giq"/>
+                            <constraint firstItem="jhv-ht-JXM" firstAttribute="bottom" secondItem="FBN-eR-TcF" secondAttribute="bottom" id="48N-z1-B3y"/>
                             <constraint firstItem="nOb-VH-5pv" firstAttribute="centerX" secondItem="GNS-Kg-c9i" secondAttribute="centerX" id="4EB-pO-evA"/>
                             <constraint firstItem="YW1-He-OLM" firstAttribute="leading" secondItem="GNS-Kg-c9i" secondAttribute="leadingMargin" constant="-20" id="6rk-ev-gDR"/>
                             <constraint firstItem="rw1-1x-NJg" firstAttribute="top" secondItem="nOb-VH-5pv" secondAttribute="top" id="6yL-6B-tbd"/>
@@ -462,6 +467,7 @@
                                 <exclude reference="0LQ-Gu-XYO"/>
                                 <exclude reference="Pwl-a1-Obn"/>
                                 <exclude reference="njD-dK-CfZ"/>
+                                <exclude reference="C31-Xe-AnE"/>
                                 <exclude reference="Dx3-Sm-dLj"/>
                             </mask>
                         </variation>
