@@ -10,13 +10,16 @@
 		D058F6111CE82482002DB071 /* LongPressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058F6101CE82482002DB071 /* LongPressTextField.swift */; };
 		D058F6131CE84405002DB071 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058F6121CE84405002DB071 /* extensions.swift */; };
 		D0618C551CE6564C00449469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C541CE6564C00449469 /* AppDelegate.swift */; };
-		D0618C571CE6564C00449469 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C561CE6564C00449469 /* MainView.swift */; };
+		D0618C571CE6564C00449469 /* 4BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C561CE6564C00449469 /* 4BandViewController.swift */; };
 		D0618C5A1CE6564C00449469 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0618C581CE6564C00449469 /* Main.storyboard */; };
 		D0618C5C1CE6564C00449469 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0618C5B1CE6564C00449469 /* Assets.xcassets */; };
 		D0618C5F1CE6564C00449469 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0618C5D1CE6564C00449469 /* LaunchScreen.storyboard */; };
 		D0618C6A1CE6564D00449469 /* ResistorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C691CE6564D00449469 /* ResistorTests.swift */; };
 		D0618C751CE6564D00449469 /* ResistorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C741CE6564D00449469 /* ResistorUITests.swift */; };
 		D0618C831CE677DE00449469 /* ResistancePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C821CE677DE00449469 /* ResistancePicker.swift */; };
+		D063EF831CFC5FFD00381C53 /* BandPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D063EF821CFC5FFD00381C53 /* BandPagesViewController.swift */; };
+		D063EF851CFC609C00381C53 /* 5BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D063EF841CFC609C00381C53 /* 5BandViewController.swift */; };
+		D063EF871CFD1AA900381C53 /* 6BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D063EF861CFD1AA900381C53 /* 6BandViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +44,7 @@
 		D058F6121CE84405002DB071 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D0618C511CE6564C00449469 /* Resistor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resistor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0618C541CE6564C00449469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0618C561CE6564C00449469 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D0618C561CE6564C00449469 /* 4BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4BandViewController.swift; sourceTree = "<group>"; };
 		D0618C591CE6564C00449469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0618C5B1CE6564C00449469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0618C5E1CE6564C00449469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +56,9 @@
 		D0618C741CE6564D00449469 /* ResistorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResistorUITests.swift; sourceTree = "<group>"; };
 		D0618C761CE6564D00449469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0618C821CE677DE00449469 /* ResistancePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResistancePicker.swift; sourceTree = "<group>"; };
+		D063EF821CFC5FFD00381C53 /* BandPagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandPagesViewController.swift; sourceTree = "<group>"; };
+		D063EF841CFC609C00381C53 /* 5BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 5BandViewController.swift; sourceTree = "<group>"; };
+		D063EF861CFD1AA900381C53 /* 6BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 6BandViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				D0618C541CE6564C00449469 /* AppDelegate.swift */,
-				D0618C561CE6564C00449469 /* MainView.swift */,
+				D0618C561CE6564C00449469 /* 4BandViewController.swift */,
+				D063EF841CFC609C00381C53 /* 5BandViewController.swift */,
+				D063EF861CFD1AA900381C53 /* 6BandViewController.swift */,
 				D0618C821CE677DE00449469 /* ResistancePicker.swift */,
 				D0618C581CE6564C00449469 /* Main.storyboard */,
+				D063EF821CFC5FFD00381C53 /* BandPagesViewController.swift */,
 				D058F6121CE84405002DB071 /* extensions.swift */,
 				D058F6101CE82482002DB071 /* LongPressTextField.swift */,
 				D0618C5B1CE6564C00449469 /* Assets.xcassets */,
@@ -267,10 +276,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D058F6131CE84405002DB071 /* extensions.swift in Sources */,
-				D0618C571CE6564C00449469 /* MainView.swift in Sources */,
+				D0618C571CE6564C00449469 /* 4BandViewController.swift in Sources */,
 				D058F6111CE82482002DB071 /* LongPressTextField.swift in Sources */,
 				D0618C831CE677DE00449469 /* ResistancePicker.swift in Sources */,
+				D063EF831CFC5FFD00381C53 /* BandPagesViewController.swift in Sources */,
 				D0618C551CE6564C00449469 /* AppDelegate.swift in Sources */,
+				D063EF871CFD1AA900381C53 /* 6BandViewController.swift in Sources */,
+				D063EF851CFC609C00381C53 /* 5BandViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

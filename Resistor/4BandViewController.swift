@@ -10,10 +10,10 @@ import UIKit
 import AVFoundation
 import iAd
 
-class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
-    
-    let valueStipe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
-    let toleranceStipe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
+class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
+        
+    let valueStripe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
+    let toleranceStripe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
     
     @IBOutlet weak var ResistorImage: UIImageView!
         
@@ -75,9 +75,9 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         switch component {
         case 1: // first stripe
-            return 0.46 * self.view.bounds.width
+            return 0.4 * self.view.bounds.width
         case 3, 4, 5: // 2-4 stripes
-            return 0.46 * self.view.bounds.width
+            return 0.4 * self.view.bounds.width
         default:
             return 0
         }
@@ -124,9 +124,9 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         
         switch component {
         case 1, 3, 4:
-            return valueStipe[colorCode]
+            return valueStripe[colorCode]
         case 5:
-            return toleranceStipe[colorCode]
+            return toleranceStripe[colorCode]
         default:
             return UIColor()
         }
@@ -218,73 +218,33 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         let allowedCharacters = "0123456789.KkGgMmΩω"
         
         let alert = UIAlertController(title: "Invalid Entry", message: "", preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in }
+        let OKAction = UIAlertAction(title: "OK", style: .Default) {
+            (action) in
+        }
         alert.addAction(OKAction)
         
         if enteredText.containsOnlyCharactersIn(allowedCharacters) {
             
             let newString = enteredText.stringByReplacingOccurrencesOfString("Ω", withString: "").stringByReplacingOccurrencesOfString("ω", withString: "")
             
+            var number: Double?
+            var count = 0
+            
             if (newString.countCharactersIn("KkGgMm") == 0) {
                 
                 //no unit specified
-                var number = Double.init(newString)
+                number = Double.init(newString)
                 
                 if (number == nil) {
+                    dismissKeyboard(self)
                     self.presentViewController(alert, animated: true) {}
-                    calculateResistance()
                     return
-                }
-                
-                var count = 0
-                
-                while (number >= 10) {
-                    number! /= 10
-                    count += 1
-                }
-                
-                if count > 10 {
-                    alert.title = "Too Large"
-                    dismissKeyboard(self)
-                    self.presentViewController(alert, animated: true) {}
-                    count = 10
-                } else if ( number < 0.1 ) {
-                    alert.title = "Too Small"
-                    dismissKeyboard(self)
-                    self.presentViewController(alert, animated: true) {}
-                    number = 0.1
-                }
-                
-                if count == 0 {
-                    if number >= 1 {
-                        resistancePicker.selectRow(10, inComponent: 4, animated: true)
-                    } else {
-                        resistancePicker.selectRow(11, inComponent: 4, animated: true)
-                    }
-                } else {
-                    resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
-                }
-                
-                
-                
-                if number == 10 {
-                    resistancePicker.selectRow(0, inComponent: 2, animated: true)
-                    resistancePicker.selectRow(0, inComponent: 3, animated: true)
-                } else if number < 1 {
-                    number! *= 100
-                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
-                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
-                } else {
-                    number! *= 10
-                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
-                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
                 }
                 
                 
             } else if (newString.countCharactersIn("KkGgMm") == 1 && newString.substringFromIndex(newString.endIndex.predecessor()).containsOnlyCharactersIn("KkGgMm")) {
                 
-                var count = 0
-                var exp = 0
+                var exp: Int
                 
                 let unit = newString.substringFromIndex(newString.endIndex.predecessor())
                 
@@ -299,65 +259,77 @@ class MainView: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                     exp = 9
                     break
                 default:
+                    exp = 0
                     break
                 }
                 
-                var number = Double.init(newString.substringToIndex(newString.endIndex.predecessor()))
+                number = Double.init(newString.substringToIndex(newString.endIndex.predecessor()))
                 
                 if (number == nil) {
+                    dismissKeyboard(self)
                     self.presentViewController(alert, animated: true) {}
-                    calculateResistance()
                     return
                 } else {
                     number! *= pow(10.0, Double(exp))
-                }
-                                
-                while (number >= 10) {
-                    number! /= 10
-                    count += 1
-                }
-                
-                if count > 10 {
-                    alert.title = "Too Large"
-                    self.presentViewController(alert, animated: true) {}
-                    count = 10
-                } else if ( number! < 0.1 ) {
-                    alert.title = "Too Small"
-                    self.presentViewController(alert, animated: true) {}
-                    number! = 0.1
-                }
-                
-                if count == 0 {
-                    if number! >= 1 {
-                        resistancePicker.selectRow(10, inComponent: 4, animated: true)
-                    } else {
-                        resistancePicker.selectRow(11, inComponent: 4, animated: true)
-                    }
-                } else {
-                    resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
-                }
-                
-                if number! == 10 {
-                    resistancePicker.selectRow(0, inComponent: 2, animated: true)
-                    resistancePicker.selectRow(0, inComponent: 3, animated: true)
-                } else if number! < 1 {
-                    number! *= 100
-                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
-                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
-                } else {
-                    number! *= 10
-                    resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
-                    resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
                 }
                 
             } else {
                 dismissKeyboard(self)
                 self.presentViewController(alert, animated: true) {}
+                return
             }
+            
+            while (number >= 10) {
+                number! /= 10
+                count += 1
+            }
+            
+            if count > 10 {
+                alert.title = "Too Large"
+                alert.message = "Maximum: 99GΩ"
+                dismissKeyboard(self)
+                self.presentViewController(alert, animated: true) {}
+                count = 10
+                return
+            } else if ( number < 0.1 ) {
+                alert.title = "Too Small"
+                alert.message = "Minimum: 0.10Ω"
+                dismissKeyboard(self)
+                self.presentViewController(alert, animated: true) {}
+                number = 0.1
+                return
+            }
+            
+            if count == 0 {
+                if number >= 1 {
+                    resistancePicker.selectRow(10, inComponent: 4, animated: true)
+                } else {
+                    resistancePicker.selectRow(11, inComponent: 4, animated: true)
+                }
+            } else {
+                resistancePicker.selectRow(count-1, inComponent: 4, animated: true)
+            }
+            
+            
+            
+            if number == 10 {
+                resistancePicker.selectRow(0, inComponent: 2, animated: true)
+                resistancePicker.selectRow(0, inComponent: 3, animated: true)
+            } else if number < 1 {
+                number! *= 100
+                resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
+                resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+            } else {
+                number! *= 10
+                resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
+                resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+            }
+
             
         } else {
             dismissKeyboard(self)
             self.presentViewController(alert, animated: true) {}
+            return
         }
         
     }
