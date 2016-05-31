@@ -42,12 +42,13 @@ class BandPagesViewController: UIPageViewController, UIPageViewControllerDataSou
         appearance.backgroundColor = UIColor.whiteColor()
     
         let firstView = (bandViewControllers[0] as! _4BandViewController).view
+        
         backgroundView.frame = firstView.frame
         backgroundView.frame = CGRect(origin: firstView.frame.origin, size: CGSize(width: firstView.frame.width, height: firstView.frame.height-37))
         backgroundView.bounds = firstView.bounds
 
-        self.view.addSubview(backgroundView)
-        self.view.sendSubviewToBack(backgroundView)
+        //self.view.addSubview(backgroundView)
+        //self.view.sendSubviewToBack(backgroundView)
     }
     
     
