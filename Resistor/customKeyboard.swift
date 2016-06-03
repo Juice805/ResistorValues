@@ -17,7 +17,6 @@ protocol KeyboardDelegate: class {
     func backspace()
     func prefix(tag: Int)
     func clear()
-    func unitButtonHighlighting(unit: String)
 }
 
 class customKeyboard: UIView {
@@ -27,6 +26,8 @@ class customKeyboard: UIView {
     @IBOutlet weak var kiloButton: UIButton!
     @IBOutlet weak var megaButton: UIButton!
     @IBOutlet weak var gigaButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     // This variable will be set as the view controller so that
     // the keyboard can send messages to the view controller.
@@ -58,7 +59,7 @@ class customKeyboard: UIView {
         // delegate (ie, the view controller)
         
         switch sender.tag {
-        case 0: //number or .
+        case 0, 9: //number or .
             self.delegate?.keyWasTapped(sender.titleLabel!.text!) // could alternatively send a tag value
         case 1,2,3,4:
             self.delegate?.prefix(sender.tag)
@@ -74,6 +75,33 @@ class customKeyboard: UIView {
     
     @IBAction func clear(sender: AnyObject) {
         self.delegate?.clear()
+        buttonReleased(deleteButton)
     }
 
+    @IBAction func buttonTouched(sender: UIButton) {
+        sender.backgroundColor = UIColor.darkGrayColor()
+    }
+    @IBAction func buttonReleased(sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            sender.backgroundColor = UIColor.whiteColor()
+        case 99, 9:
+            sender.backgroundColor = UIColor.lightTextColor()
+        default:
+            break
+        }
+    }
+    
+    @IBAction func unitButtonHighlighting(sender: UIButton) {
+        let unitButtons = [self.ohmButton, self.kiloButton, self.megaButton, self.gigaButton]
+        
+        for button in unitButtons {
+            button.enabled = true
+            button.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.8)
+        }
+        
+        sender.enabled = false
+        sender.backgroundColor = UIColor.init(red: 163/255, green: 204/255, blue: 254/255, alpha: 1.0)
+        
+    }
 }

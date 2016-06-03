@@ -393,6 +393,8 @@ extension _4BandViewController: KeyboardDelegate {
     }
     
     func clear() {
+        calculateResistance(pullBands())
+        selectUnit()
         value = ""
         formatLabel()
     }
@@ -405,30 +407,23 @@ extension _4BandViewController: KeyboardDelegate {
             self.resistanceField.text = "\(calculateResistance(pullBands(), dryRun: true)!)\(unit)"
             self.resistanceField.textColor = UIColor.lightGrayColor()
         }
-        
-        unitButtonHighlighting(unit)
     }
     
-    func unitButtonHighlighting(unit: String) {
-        self.myKeyboard.ohmButton.enabled = true
-        self.myKeyboard.kiloButton.enabled = true
-        self.myKeyboard.megaButton.enabled = true
-        self.myKeyboard.gigaButton.enabled = true
-        
+    func selectUnit(){
         switch unit {
-        case "Ω":
-            self.myKeyboard.ohmButton.enabled = false
-        case "KΩ", "kΩ":
-            self.myKeyboard.kiloButton.enabled = false
-        case "MΩ", "mΩ":
-            self.myKeyboard.megaButton.enabled = false
-        case "GΩ", "gΩ":
-            self.myKeyboard.gigaButton.enabled = false
+        case "Ω":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.ohmButton)
+        case "kΩ", "KΩ":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.kiloButton)
+        case "mΩ", "MΩ":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.megaButton)
+        case "gΩ", "GΩ":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.gigaButton)
         default:
             break
         }
     }
-    
+        
 }
 
 
@@ -552,10 +547,9 @@ extension _4BandViewController: UITextFieldDelegate {
         value = ""
         formatLabel()
         
+        selectUnit()
+        
         textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.beginningOfDocument)
-        
-        unitButtonHighlighting(unit)
-        
     }
     
 }

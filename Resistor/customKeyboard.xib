@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="customKeyboard" customModule="Resistor" customModuleProvider="target">
             <connections>
+                <outlet property="deleteButton" destination="UoE-Tm-0rJ" id="xyG-UT-P7C"/>
                 <outlet property="gigaButton" destination="cJO-da-Xtc" id="ape-r2-8MX"/>
                 <outlet property="kiloButton" destination="k4b-oj-ZTy" id="mZM-rs-I1p"/>
                 <outlet property="megaButton" destination="dLC-zS-erU" id="6Mn-fN-c10"/>
@@ -33,13 +34,17 @@
                             </view>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJO-da-Xtc">
                                 <rect key="frame" x="458" y="363" width="142" height="96"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80156249999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="GΩ">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="gQB-Dp-PKg"/>
+                                    <action selector="unitButtonHighlighting:" destination="-1" eventType="touchUpInside" id="cab-6O-5rU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-Iz-4tP">
@@ -55,34 +60,48 @@
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLC-zS-erU">
                                 <rect key="frame" x="458" y="256" width="142" height="99"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80156249999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="MΩ">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="EIi-d3-J9V"/>
+                                    <action selector="unitButtonHighlighting:" destination="-1" eventType="touchUpInside" id="LWQ-U5-NeM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4b-oj-ZTy">
                                 <rect key="frame" x="458" y="109" width="142" height="139"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80156249999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="KΩ">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="2Jk-rw-jt5"/>
+                                    <action selector="unitButtonHighlighting:" destination="-1" eventType="touchUpInside" id="8us-7A-zbY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptL-rh-koD">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptL-rh-koD">
                                 <rect key="frame" x="0.0" y="459" width="142" height="141"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <state key="normal" title=".">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="SqP-kj-yRM"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="y7a-PU-VtV"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="t0g-x8-luH"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="HLG-eT-B9G"/>
                                 </connections>
                             </button>
@@ -93,30 +112,14 @@
                                 <state key="normal" title="0">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="7Gf-ti-YUx"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="wXu-io-3hz"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="hsi-XK-kw4"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="8PA-xx-0Fd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkf-9V-ezj">
-                                <rect key="frame" x="0.0" y="310" width="142" height="141"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="7">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="Afd-BI-oS6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-fy-dxT">
-                                <rect key="frame" x="0.0" y="152" width="142" height="141"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="4">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="m4R-ix-lf6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee8-w6-N8g">
@@ -126,7 +129,13 @@
                                 <state key="normal" title="1">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="1hw-5r-viv"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="PCl-dC-m5C"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="dTE-x3-oJr"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="ql3-Gh-yjT"/>
                                 </connections>
                             </button>
@@ -137,8 +146,82 @@
                                 <state key="normal" title="2">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="MNT-1o-2p4"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="TTR-Z7-5Ob"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="Bl1-0b-O1m"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="E4Q-Ke-rwG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeR-OO-9to">
+                                <rect key="frame" x="458" y="0.0" width="142" height="106"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Ω">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="XhS-7u-lND"/>
+                                    <action selector="unitButtonHighlighting:" destination="-1" eventType="touchUpInside" id="lR2-3l-fpb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="99" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoE-Tm-0rJ">
+                                <rect key="frame" x="297" y="459" width="142" height="141"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="⌫">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="9Aj-gR-4LG"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="blv-CB-9ed"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="Cwv-EX-aOu"/>
+                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="D86-tG-vjh"/>
+                                    <outletCollection property="gestureRecognizers" destination="fcr-79-cKJ" appends="YES" id="be3-fw-bD6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kkf-9V-ezj">
+                                <rect key="frame" x="0.0" y="310" width="142" height="141"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="7">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="U8Q-NI-rEY"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="VsN-g0-4WF"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="KbD-AN-6ip"/>
+                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="Afd-BI-oS6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-fy-dxT">
+                                <rect key="frame" x="0.0" y="152" width="142" height="141"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="8MG-56-Vas"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="MKl-iN-Kf0"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="M0f-ve-gS4"/>
+                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="m4R-ix-lf6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7af-HY-bkr">
@@ -148,7 +231,13 @@
                                 <state key="normal" title="5">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="8SA-dg-KtR"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="jVQ-VA-UVG"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="c57-gZ-nVA"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="nPb-aw-epI"/>
                                 </connections>
                             </button>
@@ -159,7 +248,13 @@
                                 <state key="normal" title="8">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="U0T-K2-fQu"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="fhW-9a-FVJ"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="N7I-xJ-gZb"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="C4B-gm-G8q"/>
                                 </connections>
                             </button>
@@ -170,7 +265,13 @@
                                 <state key="normal" title="9">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="14d-S4-X4e"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="S2V-rL-qL8"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="Ei6-c8-9F9"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="QfA-s6-6uC"/>
                                 </connections>
                             </button>
@@ -181,7 +282,13 @@
                                 <state key="normal" title="6">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="kqR-vH-3Og"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="qTC-d8-4np"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="q6j-nL-S31"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="vow-rF-YbT"/>
                                 </connections>
                             </button>
@@ -192,32 +299,14 @@
                                 <state key="normal" title="3">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpOutside" id="bYe-Py-lfT"/>
+                                    <action selector="buttonReleased:" destination="-1" eventType="touchUpInside" id="f2b-Db-uCb"/>
+                                    <action selector="buttonTouched:" destination="-1" eventType="touchDown" id="Log-P0-fd2"/>
                                     <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="kIg-rQ-Vaa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeR-OO-9to">
-                                <rect key="frame" x="458" y="0.0" width="142" height="106"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80156249999999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Ω">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="XhS-7u-lND"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="99" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoE-Tm-0rJ">
-                                <rect key="frame" x="297" y="459" width="142" height="141"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="⌫">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="keyTapped:" destination="-1" eventType="touchUpInside" id="D86-tG-vjh"/>
-                                    <outletCollection property="gestureRecognizers" destination="fcr-79-cKJ" appends="YES" id="be3-fw-bD6"/>
                                 </connections>
                             </button>
                         </subviews>
