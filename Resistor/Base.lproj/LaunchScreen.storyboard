@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,32 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Ω" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl4-wK-6GM">
-                                <rect key="frame" x="106" y="58" width="202" height="145"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ω" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cl4-wK-6GM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="346"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="jAj-nC-qOn"/>
+                                    <constraint firstAttribute="height" constant="400" id="jAj-nC-qOn"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="160"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="300"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PvB-6h-Apg">
-                                <rect key="frame" x="344" y="0.0" width="70" height="736"/>
-                                <color key="backgroundColor" red="1" green="0.90069095893630635" blue="0.67023707353409434" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="PvB-6h-Apg" secondAttribute="trailing" constant="-20" id="3nl-RO-Sfw"/>
                             <constraint firstItem="Cl4-wK-6GM" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9SZ-my-W3H"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="PvB-6h-Apg" secondAttribute="bottom" id="B1v-05-F4n"/>
                             <constraint firstItem="Cl4-wK-6GM" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="50" id="Fw2-oD-h8o"/>
                             <constraint firstItem="Cl4-wK-6GM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="25" id="LT9-Cd-vJD"/>
-                            <constraint firstItem="PvB-6h-Apg" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="LhF-YR-bOa"/>
+                            <constraint firstItem="Cl4-wK-6GM" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-80" id="MAf-JB-9bq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Fw2-oD-h8o"/>
+                                <exclude reference="LT9-Cd-vJD"/>
                             </mask>
                         </variation>
                     </view>
