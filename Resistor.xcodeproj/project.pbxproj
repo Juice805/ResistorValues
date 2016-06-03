@@ -609,10 +609,20 @@
 				INFOPLIST_FILE = Resistor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/UITextField+Shake/UITextField_Shake.framework/Headers\"",
+					"-fPIC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.Resistor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2d94a85c-b471-41f1-a54b-9a08ce104be5";
 				SWIFT_OBJC_BRIDGING_HEADER = Resistor/objCHeader.h;
+				WARNING_CFLAGS = (
+					"-Wl,--warn-shared-textrel",
+					"-Wl,--emit-relocs",
+				);
 			};
 			name = Debug;
 		};
@@ -626,10 +636,20 @@
 				INFOPLIST_FILE = Resistor/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/UITextField+Shake/UITextField_Shake.framework/Headers\"",
+					"-fPIC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.Resistor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2d94a85c-b471-41f1-a54b-9a08ce104be5";
 				SWIFT_OBJC_BRIDGING_HEADER = Resistor/objCHeader.h;
+				WARNING_CFLAGS = (
+					"-Wl,--warn-shared-textrel",
+					"-Wl,--emit-relocs",
+				);
 			};
 			name = Release;
 		};

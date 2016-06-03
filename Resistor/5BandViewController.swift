@@ -287,7 +287,6 @@ extension _5BandViewController: KeyboardDelegate {
         
         let prospectiveNewValue = calculateBands(value + character, unit: unit)
         let oldValue = calculateBands(value, unit: unit)
-        let decimalTester = calculateBands(value  + "9", unit: unit)
         
         if value == "" {
             if character == "0" || character == "." {

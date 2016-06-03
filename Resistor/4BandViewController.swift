@@ -54,7 +54,7 @@ class _4BandViewController: UIViewController, UIGestureRecognizerDelegate {
         
         // initialize custom keyboard
         // TODO: Decide on Keyboard Height
-        self.myKeyboard = customKeyboard(frame: CGRect(x: 0, y: 0, width: 0, height: self.view.frame.height * 0.45))
+        self.myKeyboard = customKeyboard(frame: CGRect(x: 0, y: 0, width: 0, height: self.view.frame.height * 0.35))
         self.myKeyboard.delegate = self // the view controller will be notified by the keyboard whenever a key is tapped
         
         // replace system keyboard with custom keyboard
@@ -287,7 +287,6 @@ extension _4BandViewController: KeyboardDelegate {
         
         let prospectiveNewValue = calculateBands(value + character, unit: unit)
         let oldValue = calculateBands(value, unit: unit)
-        let decimalTester = calculateBands(value  + "9", unit: unit)
         
         if value == "" {
             if character == "0" || character == "." {
