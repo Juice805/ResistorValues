@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import iAd
+import UITextField_Shake
 
 class _4BandViewController: UIViewController, UIGestureRecognizerDelegate {
         
@@ -187,11 +188,11 @@ class _4BandViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
                 
                 while (number >= 10) {
-                    number! /= 10
-                    count += 1
                     if number < 100 && number > 10 {
                         number = round(number!)
                     }
+                    number! /= 10
+                    count += 1
                 }
                 
                 if count > 10 {
@@ -224,11 +225,7 @@ class _4BandViewController: UIViewController, UIGestureRecognizerDelegate {
                 bandsResult[.One] = Int(number!/10)-1
                 bandsResult[.Two] = Int(round(number!%10))
             }
-            
-            if bandsResult[.One] >= 9 {
-                print("Too Large: Maximum 999GΩ")
-                return nil
-            }
+
             
         } else {
             dismissKeyboard(self)
@@ -304,15 +301,15 @@ extension _4BandViewController: KeyboardDelegate {
                 value.appendContentsOf(character)
             }
         } else if character == "." {
-            if !value.containsString(".") && calculateBands(value + ".9", unit: unit) != nil {
+            if let _9Val = calculateBands(value + ".9", unit: unit) {
                 if oldValue == nil {
                     value.appendContentsOf(character)
-                } else if oldValue! != calculateBands(value + ".9", unit: unit)! {
+                } else if !value.containsString(".") && oldValue! != _9Val  {
                     value.appendContentsOf(character)
                 } else {
                     self.resistanceField.shake()
                 }
-            } else {
+            }else {
                 self.resistanceField.shake()
             }
             
@@ -327,7 +324,10 @@ extension _4BandViewController: KeyboardDelegate {
         } else if Double.init(value + character) >= 1000000 {
             self.resistanceField.shake()
         } else if value.containsString(".") && prospectiveNewValue != nil && Double.init(value + character) >= 0.001 {
+            let _09Val = calculateBands(value  + "09", unit: unit)
             if oldValue == nil || prospectiveNewValue! != oldValue!{
+                value.appendContentsOf(character)
+            } else if character == "0" && _09Val != nil  && _09Val! != oldValue!{
                 value.appendContentsOf(character)
             } else  {
                 self.resistanceField.shake()

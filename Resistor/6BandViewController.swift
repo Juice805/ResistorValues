@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import iAd
+import UITextField_Shake
 
 class _6BandViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -30,7 +31,7 @@ class _6BandViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var invisEditButton: UIButton!
     
-    var value = "10"
+    var value = "100"
     
     var unit = "Ω"
     
@@ -191,25 +192,25 @@ class _6BandViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 number! *= pow(10.0, exp)
                 
-                if number < 1 {
-                    number! *= 1000
-                    number = round(number!)
-                    number! /= 1000
-                } else if number < 10 {
+                if number < 10 {
                     number! *= 100
                     number = round(number!)
                     number! /= 100
+                } else if number < 100 {
+                    number! *= 10
+                    number = round(number!)
+                    number! /= 10
                 }
                 
                 while (number >= 10) {
-                    number! /= 10
-                    count += 1
                     if number < 1000 && number > 100 {
                         number = round(number!)
                     }
+                    number! /= 10
+                    count += 1
                 }
                 
-                if count > 12 {
+                if count > 11 {
                     print("Too Large: Maximum 999GΩ")
                     return nil
                 } else if ( number < 1.0 ) {
@@ -239,10 +240,6 @@ class _6BandViewController: UIViewController, UIGestureRecognizerDelegate {
                 bandsResult[.Two] = Int((number!%100)/10)
                 bandsResult[.Three] = Int(round(number!%10))
                 
-                if bandsResult[.One] >= 9 {
-                    print("Too Large: Maximum 999GΩ")
-                    return nil
-                }
             }
             
         } else {
@@ -321,15 +318,15 @@ extension _6BandViewController: KeyboardDelegate {
                 value.appendContentsOf(character)
             }
         } else if character == "." {
-            if !value.containsString(".") && calculateBands(value + ".9", unit: unit) != nil {
+            if let _9Val = calculateBands(value + ".9", unit: unit) {
                 if oldValue == nil {
                     value.appendContentsOf(character)
-                } else if oldValue! != calculateBands(value + ".9", unit: unit)! {
+                } else if !value.containsString(".") && oldValue! != _9Val  {
                     value.appendContentsOf(character)
                 } else {
                     self.resistanceField.shake()
                 }
-            } else {
+            }else {
                 self.resistanceField.shake()
             }
             
@@ -344,7 +341,10 @@ extension _6BandViewController: KeyboardDelegate {
         } else if Double.init(value + character) >= 1000000 {
             self.resistanceField.shake()
         } else if value.containsString(".") && prospectiveNewValue != nil && Double.init(value + character) >= 0.001 {
+            let _09Val = calculateBands(value  + "09", unit: unit)
             if oldValue == nil || prospectiveNewValue! != oldValue!{
+                value.appendContentsOf(character)
+            } else if character == "0" && _09Val != nil  && _09Val! != oldValue!{
                 value.appendContentsOf(character)
             } else  {
                 self.resistanceField.shake()
@@ -359,6 +359,7 @@ extension _6BandViewController: KeyboardDelegate {
         formatLabel()
         setBands(calculateBands(value, unit: unit))
     }
+
     
     func backspace() {
         if value == "0." {
@@ -378,7 +379,7 @@ extension _6BandViewController: KeyboardDelegate {
         case 1:
             unit = "Ω"
             
-            if Double.init(value) < 0.1 {
+            if Double.init(value) < 1 {
                 value = ""
             }
             
@@ -395,8 +396,9 @@ extension _6BandViewController: KeyboardDelegate {
             break
         }
         
-        while !value.isEmpty && !value.containsOnlyCharactersIn("0.") && (calculateBands(value, unit: unit) == nil) {
-            value.removeAtIndex(value.endIndex.predecessor())
+        while !value.isEmpty && !value.containsOnlyCharactersIn("0.") &&
+            (calculateBands(value, unit: unit) == nil || value.substringFromIndex(value.endIndex.predecessor()) == ".") {
+                value.removeAtIndex(value.endIndex.predecessor())
         }
         
         formatLabel()

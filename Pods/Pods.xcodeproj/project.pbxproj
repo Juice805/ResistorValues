@@ -71,7 +71,6 @@
 		C345DF42E8E16FADF6A3FD47FA34B11F /* Pods-ResistorUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResistorUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C9705A9A23E654915E111C41E9C8BD19 /* Pods-ResistorUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ResistorUITests.modulemap"; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D095CB401D002C0700849192 /* objCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = objCHeader.h; path = ../Resistor/objCHeader.h; sourceTree = "<group>"; };
 		DFDEE25C7A7572881D68F85A2231A490 /* Pods-ResistorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResistorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DFF1A83AF049FED05100431ED7738DFE /* Pods-Resistor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Resistor.modulemap"; sourceTree = "<group>"; };
 		E77BDFF3AAA0AF78C16BA9AC58ECAD52 /* Pods_ResistorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,7 +227,6 @@
 		8105B9C00D364E5173D5D1D94FA69791 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D095CB401D002C0700849192 /* objCHeader.h */,
 				BFD4894937807BD04EF01A862A6EA591 /* UITextField+Shake */,
 			);
 			name = Pods;

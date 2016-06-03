@@ -23,6 +23,7 @@
 		D063EF871CFD1AA900381C53 /* 6BandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D063EF861CFD1AA900381C53 /* 6BandViewController.swift */; };
 		D065955F1D000B370082FA46 /* customKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D065955D1D000B370082FA46 /* customKeyboard.swift */; };
 		D06595601D000B370082FA46 /* customKeyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = D065955E1D000B370082FA46 /* customKeyboard.xib */; };
+		D07D091E1D018B9F00670FAE /* UITextField_Shake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D07D091D1D018B9F00670FAE /* UITextField_Shake.framework */; };
 		D22FCCA9E2E50F673F9984CC /* Pods_ResistorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D274FDA6C99E55A154E1A8B8 /* Pods_ResistorUITests.framework */; };
 		D5A2E3B6A0744BE80119B167 /* Pods_Resistor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327B78DFC8337F9D25C828EB /* Pods_Resistor.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,8 @@
 		D063EF861CFD1AA900381C53 /* 6BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 6BandViewController.swift; sourceTree = "<group>"; };
 		D065955D1D000B370082FA46 /* customKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customKeyboard.swift; sourceTree = "<group>"; };
 		D065955E1D000B370082FA46 /* customKeyboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customKeyboard.xib; sourceTree = "<group>"; };
+		D07D091C1D018B2100670FAE /* objCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objCHeader.h; sourceTree = "<group>"; };
+		D07D091D1D018B9F00670FAE /* UITextField_Shake.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UITextField_Shake.framework; path = "../../../Library/Developer/Xcode/DerivedData/Resistor-bqjhbunjctianadnmagkpyqsodpt/Build/Products/Debug-iphonesimulator/UITextField+Shake/UITextField_Shake.framework"; sourceTree = "<group>"; };
 		D274FDA6C99E55A154E1A8B8 /* Pods_ResistorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47ED0CA3D44212AB8E12146 /* Pods_ResistorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D07D091E1D018B9F00670FAE /* UITextField_Shake.framework in Frameworks */,
 				D5A2E3B6A0744BE80119B167 /* Pods_Resistor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +112,7 @@
 		3A4886FDC6FA6BBBCA8936BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D07D091D1D018B9F00670FAE /* UITextField_Shake.framework */,
 				327B78DFC8337F9D25C828EB /* Pods_Resistor.framework */,
 				E47ED0CA3D44212AB8E12146 /* Pods_ResistorTests.framework */,
 				D274FDA6C99E55A154E1A8B8 /* Pods_ResistorUITests.framework */,
@@ -167,6 +172,7 @@
 				D0618C5B1CE6564C00449469 /* Assets.xcassets */,
 				D0618C5D1CE6564C00449469 /* LaunchScreen.storyboard */,
 				D0618C601CE6564C00449469 /* Info.plist */,
+				D07D091C1D018B2100670FAE /* objCHeader.h */,
 			);
 			path = Resistor;
 			sourceTree = "<group>";

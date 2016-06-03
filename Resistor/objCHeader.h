@@ -8,7 +8,6 @@
 
 #ifndef objCHeader_h
 
-#import "../Pods/UITextField+Shake/Source/UITextField+Shake.h"
 
 #define objCHeader_h
 
