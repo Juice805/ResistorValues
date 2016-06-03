@@ -295,7 +295,7 @@ extension _5BandViewController: KeyboardDelegate {
     
     func keyWasTapped(character: String) {
         
-        let prospectiveNewValue = calculateBands(value + character, unit: unit)
+        let prospectiveNewValue = calculateBands(value + "9", unit: unit)
         let oldValue = calculateBands(value, unit: unit)
         
         if value == "" {
@@ -331,7 +331,7 @@ extension _5BandViewController: KeyboardDelegate {
             self.resistanceField.shake()
         } else if Double.init(value + character) >= 1000000 {
             self.resistanceField.shake()
-        } else if value.containsString(".") && prospectiveNewValue != nil && Double.init(value + character) >= 0.001 {
+        } else if value.containsString(".") && Double.init(value + character) >= 0.001 {
             let _09Val = calculateBands(value  + "09", unit: unit)
             if oldValue == nil || prospectiveNewValue! != oldValue!{
                 value.appendContentsOf(character)
