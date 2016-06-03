@@ -1,0 +1,825 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0764481C1892B071415A3B18805B21CB /* Pods-Resistor-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2418770C1B18CBC3FA964E3D3B5464 /* Pods-Resistor-dummy.m */; };
+		0DDAE78F28147F1692A40C3ECC00705E /* UITextField+Shake.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F6C12FF1F62B73AE904D6D27C46D40 /* UITextField+Shake.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		304A7740CA81F9CC479ACBFB4A4AD8CA /* Pods-ResistorTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E875CA3D54A1C9B61DDBA91C8FC073 /* Pods-ResistorTests-dummy.m */; };
+		38A27959833A19A0AB3DB37176E65F26 /* UITextField+Shake-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2EEC5829F3B13C4DEC14143F997C09 /* UITextField+Shake-dummy.m */; };
+		42A28DFE39C4BAB1A6BCCDB249A7D249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		4AE8BA11F86C3931F4BC3B46A87ACF00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		6050D839AE1CCC4CF63E3C1AF7121886 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		79AB56B2537C750A5157B4852DFE6E79 /* Pods-Resistor-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D2B8D17BF0A2F52A579CB16D6B7E01F /* Pods-Resistor-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D484898447575EE8527F5281404F6EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		A7C6C3720F20A4E5E35CF5E5488B67DA /* UITextField+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D2CBD9E51CFAE1DF30040F5B8AB61B /* UITextField+Shake.m */; };
+		AD9F2AD62D60DF074FD4A2C00535B14C /* Pods-ResistorUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8822A1C675775FC53346900BA64745BC /* Pods-ResistorUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE2D5ADF0397B17C14C95210AF1EE1A6 /* Pods-ResistorUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F1044ECAF0F0EA1EB43D83F4C28780D6 /* Pods-ResistorUITests-dummy.m */; };
+		D68127925BB780403ACA2E94E0555842 /* UITextField+Shake-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B767214643AFA0295A0EAACD7B42484D /* UITextField+Shake-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E46354B0C1334F43AE8EFBCFA1ABC047 /* Pods-ResistorTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0420F1C91D552051DF9872A35E2E6106 /* Pods-ResistorTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94A37A979E91217286BF42FD68D1AAC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AF624EC6ACCB81BC1471ECD82A56992;
+			remoteInfo = "UITextField+Shake";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0420F1C91D552051DF9872A35E2E6106 /* Pods-ResistorTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ResistorTests-umbrella.h"; sourceTree = "<group>"; };
+		06AE5990C6A7DC142415946613B2AE4C /* UITextField+Shake.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "UITextField+Shake.modulemap"; sourceTree = "<group>"; };
+		0CA53739476E4131A670EB102D962897 /* UITextField+Shake-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake-prefix.pch"; sourceTree = "<group>"; };
+		105D12D397018D0209C9205E2968FCF7 /* Pods-Resistor-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Resistor-acknowledgements.plist"; sourceTree = "<group>"; };
+		110E29A48175E7B971CBA2C4BDCC2628 /* Pods-ResistorUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResistorUITests-resources.sh"; sourceTree = "<group>"; };
+		1D39B9CE3106FBB73B15C900142B1AC6 /* Pods-ResistorUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResistorUITests-frameworks.sh"; sourceTree = "<group>"; };
+		1E75EC321AA4AB16ECE91D930F00505B /* UITextField+Shake.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "UITextField+Shake.xcconfig"; sourceTree = "<group>"; };
+		1F2A1F3E9104D8B23F2D1BCA2CA63C72 /* Pods-ResistorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResistorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		23F66B3527CD8ADADA797F2DC2C8397F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		284E8F44ECA3761D728B937B6897AF40 /* Pods-ResistorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResistorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2A2EEC5829F3B13C4DEC14143F997C09 /* UITextField+Shake-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Shake-dummy.m"; sourceTree = "<group>"; };
+		2B2418770C1B18CBC3FA964E3D3B5464 /* Pods-Resistor-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Resistor-dummy.m"; sourceTree = "<group>"; };
+		357E6FC2289EC317A4D95940C1479E34 /* Pods-ResistorTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResistorTests-resources.sh"; sourceTree = "<group>"; };
+		36C85EF95E0415B4A9CEF5AE46271E69 /* Pods-ResistorTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ResistorTests-frameworks.sh"; sourceTree = "<group>"; };
+		36F6C12FF1F62B73AE904D6D27C46D40 /* UITextField+Shake.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+Shake.h"; path = "Source/UITextField+Shake.h"; sourceTree = "<group>"; };
+		39D2CBD9E51CFAE1DF30040F5B8AB61B /* UITextField+Shake.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+Shake.m"; path = "Source/UITextField+Shake.m"; sourceTree = "<group>"; };
+		3D2B8D17BF0A2F52A579CB16D6B7E01F /* Pods-Resistor-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Resistor-umbrella.h"; sourceTree = "<group>"; };
+		46A6B8B784263ED2AD5014EBE5E9B03D /* Pods-Resistor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Resistor.debug.xcconfig"; sourceTree = "<group>"; };
+		5046AF6F532A14C0486274E06C343B45 /* Pods_Resistor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resistor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		55AD7D167D92E66D8556B8099C9847AD /* Pods-Resistor-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Resistor-resources.sh"; sourceTree = "<group>"; };
+		6F04C6B011D613103D8A922C1DDEF443 /* Pods-ResistorTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResistorTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		759E7BEE45FBA744D2462555162D971A /* UITextField_Shake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITextField_Shake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77B5E80393157323FF4CCCE8B4B14784 /* Pods-ResistorUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResistorUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		82A16641E47721BEF57BAF7876323798 /* Pods-Resistor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Resistor.release.xcconfig"; sourceTree = "<group>"; };
+		8822A1C675775FC53346900BA64745BC /* Pods-ResistorUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ResistorUITests-umbrella.h"; sourceTree = "<group>"; };
+		90B60B602774E42268B67360800D500A /* Pods-Resistor-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Resistor-frameworks.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98E875CA3D54A1C9B61DDBA91C8FC073 /* Pods-ResistorTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResistorTests-dummy.m"; sourceTree = "<group>"; };
+		993B12F081AB150D32A4CBC66D976900 /* Pods-ResistorTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ResistorTests.modulemap"; sourceTree = "<group>"; };
+		A5916768F8B0AFA97EF641688EA91E01 /* Pods-ResistorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResistorTests.release.xcconfig"; sourceTree = "<group>"; };
+		B0BCC8E8E648E8594697355E3AB4B812 /* Pods-ResistorTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ResistorTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B607E57A2EBFEEDE308E69C03EF5CD99 /* Pods-Resistor-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Resistor-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B767214643AFA0295A0EAACD7B42484D /* UITextField+Shake-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UITextField+Shake-umbrella.h"; sourceTree = "<group>"; };
+		BE8638631FD40348FBA8FD55E416C807 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C345DF42E8E16FADF6A3FD47FA34B11F /* Pods-ResistorUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ResistorUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C9705A9A23E654915E111C41E9C8BD19 /* Pods-ResistorUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-ResistorUITests.modulemap"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D095CB401D002C0700849192 /* objCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = objCHeader.h; path = ../Resistor/objCHeader.h; sourceTree = "<group>"; };
+		DFDEE25C7A7572881D68F85A2231A490 /* Pods-ResistorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ResistorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DFF1A83AF049FED05100431ED7738DFE /* Pods-Resistor.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Resistor.modulemap"; sourceTree = "<group>"; };
+		E77BDFF3AAA0AF78C16BA9AC58ECAD52 /* Pods_ResistorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1044ECAF0F0EA1EB43D83F4C28780D6 /* Pods-ResistorUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ResistorUITests-dummy.m"; sourceTree = "<group>"; };
+		F59594A735890E7DBEDE56B9CC7B8D9C /* Pods_ResistorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7AAFD322321D16EF579944C8FEFB01C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE62ED85D7AF58CCE7A012911B0F79B4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3C3BC7A097CF2137F67AC2F5AD06E250 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42A28DFE39C4BAB1A6BCCDB249A7D249 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B24920D52A5A769E07A2484D0F5E79F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D484898447575EE8527F5281404F6EE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B72B10C9E1334D842FFA00D266C3CFF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AE8BA11F86C3931F4BC3B46A87ACF00 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F434DF62A07654B05B3C24B9AE7C9D3E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6050D839AE1CCC4CF63E3C1AF7121886 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04BCDB2914EA8E13D53BE33B46668621 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				198E8C6997D37225DD638453938AD4FF /* Pods-Resistor */,
+				2A1CE51667B740FDA538F7B5D1E96F98 /* Pods-ResistorTests */,
+				11FADE6FEF7340E7A66F8C585585F916 /* Pods-ResistorUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		09705294BAF2910CC701CBADE11DC3EF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F7AAFD322321D16EF579944C8FEFB01C /* Info.plist */,
+				06AE5990C6A7DC142415946613B2AE4C /* UITextField+Shake.modulemap */,
+				1E75EC321AA4AB16ECE91D930F00505B /* UITextField+Shake.xcconfig */,
+				2A2EEC5829F3B13C4DEC14143F997C09 /* UITextField+Shake-dummy.m */,
+				0CA53739476E4131A670EB102D962897 /* UITextField+Shake-prefix.pch */,
+				B767214643AFA0295A0EAACD7B42484D /* UITextField+Shake-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/UITextField+Shake";
+			sourceTree = "<group>";
+		};
+		11FADE6FEF7340E7A66F8C585585F916 /* Pods-ResistorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FE62ED85D7AF58CCE7A012911B0F79B4 /* Info.plist */,
+				C9705A9A23E654915E111C41E9C8BD19 /* Pods-ResistorUITests.modulemap */,
+				77B5E80393157323FF4CCCE8B4B14784 /* Pods-ResistorUITests-acknowledgements.markdown */,
+				C345DF42E8E16FADF6A3FD47FA34B11F /* Pods-ResistorUITests-acknowledgements.plist */,
+				F1044ECAF0F0EA1EB43D83F4C28780D6 /* Pods-ResistorUITests-dummy.m */,
+				1D39B9CE3106FBB73B15C900142B1AC6 /* Pods-ResistorUITests-frameworks.sh */,
+				110E29A48175E7B971CBA2C4BDCC2628 /* Pods-ResistorUITests-resources.sh */,
+				8822A1C675775FC53346900BA64745BC /* Pods-ResistorUITests-umbrella.h */,
+				284E8F44ECA3761D728B937B6897AF40 /* Pods-ResistorUITests.debug.xcconfig */,
+				1F2A1F3E9104D8B23F2D1BCA2CA63C72 /* Pods-ResistorUITests.release.xcconfig */,
+			);
+			name = "Pods-ResistorUITests";
+			path = "Target Support Files/Pods-ResistorUITests";
+			sourceTree = "<group>";
+		};
+		198E8C6997D37225DD638453938AD4FF /* Pods-Resistor */ = {
+			isa = PBXGroup;
+			children = (
+				BE8638631FD40348FBA8FD55E416C807 /* Info.plist */,
+				DFF1A83AF049FED05100431ED7738DFE /* Pods-Resistor.modulemap */,
+				B607E57A2EBFEEDE308E69C03EF5CD99 /* Pods-Resistor-acknowledgements.markdown */,
+				105D12D397018D0209C9205E2968FCF7 /* Pods-Resistor-acknowledgements.plist */,
+				2B2418770C1B18CBC3FA964E3D3B5464 /* Pods-Resistor-dummy.m */,
+				90B60B602774E42268B67360800D500A /* Pods-Resistor-frameworks.sh */,
+				55AD7D167D92E66D8556B8099C9847AD /* Pods-Resistor-resources.sh */,
+				3D2B8D17BF0A2F52A579CB16D6B7E01F /* Pods-Resistor-umbrella.h */,
+				46A6B8B784263ED2AD5014EBE5E9B03D /* Pods-Resistor.debug.xcconfig */,
+				82A16641E47721BEF57BAF7876323798 /* Pods-Resistor.release.xcconfig */,
+			);
+			name = "Pods-Resistor";
+			path = "Target Support Files/Pods-Resistor";
+			sourceTree = "<group>";
+		};
+		245E8DAE90FC32628A9B577DDBB26D4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5046AF6F532A14C0486274E06C343B45 /* Pods_Resistor.framework */,
+				F59594A735890E7DBEDE56B9CC7B8D9C /* Pods_ResistorTests.framework */,
+				E77BDFF3AAA0AF78C16BA9AC58ECAD52 /* Pods_ResistorUITests.framework */,
+				759E7BEE45FBA744D2462555162D971A /* UITextField_Shake.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A1CE51667B740FDA538F7B5D1E96F98 /* Pods-ResistorTests */ = {
+			isa = PBXGroup;
+			children = (
+				23F66B3527CD8ADADA797F2DC2C8397F /* Info.plist */,
+				993B12F081AB150D32A4CBC66D976900 /* Pods-ResistorTests.modulemap */,
+				B0BCC8E8E648E8594697355E3AB4B812 /* Pods-ResistorTests-acknowledgements.markdown */,
+				6F04C6B011D613103D8A922C1DDEF443 /* Pods-ResistorTests-acknowledgements.plist */,
+				98E875CA3D54A1C9B61DDBA91C8FC073 /* Pods-ResistorTests-dummy.m */,
+				36C85EF95E0415B4A9CEF5AE46271E69 /* Pods-ResistorTests-frameworks.sh */,
+				357E6FC2289EC317A4D95940C1479E34 /* Pods-ResistorTests-resources.sh */,
+				0420F1C91D552051DF9872A35E2E6106 /* Pods-ResistorTests-umbrella.h */,
+				DFDEE25C7A7572881D68F85A2231A490 /* Pods-ResistorTests.debug.xcconfig */,
+				A5916768F8B0AFA97EF641688EA91E01 /* Pods-ResistorTests.release.xcconfig */,
+			);
+			name = "Pods-ResistorTests";
+			path = "Target Support Files/Pods-ResistorTests";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				8105B9C00D364E5173D5D1D94FA69791 /* Pods */,
+				245E8DAE90FC32628A9B577DDBB26D4A /* Products */,
+				04BCDB2914EA8E13D53BE33B46668621 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8105B9C00D364E5173D5D1D94FA69791 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D095CB401D002C0700849192 /* objCHeader.h */,
+				BFD4894937807BD04EF01A862A6EA591 /* UITextField+Shake */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFD4894937807BD04EF01A862A6EA591 /* UITextField+Shake */ = {
+			isa = PBXGroup;
+			children = (
+				36F6C12FF1F62B73AE904D6D27C46D40 /* UITextField+Shake.h */,
+				39D2CBD9E51CFAE1DF30040F5B8AB61B /* UITextField+Shake.m */,
+				09705294BAF2910CC701CBADE11DC3EF /* Support Files */,
+			);
+			path = "UITextField+Shake";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		190B7C79F3979B2B7149AEF4D83CC83A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E46354B0C1334F43AE8EFBCFA1ABC047 /* Pods-ResistorTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		307339F6CBB5C086DD6F30BA80212FFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				79AB56B2537C750A5157B4852DFE6E79 /* Pods-Resistor-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D116CAA2CB931928DF4E9A082B9088B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD9F2AD62D60DF074FD4A2C00535B14C /* Pods-ResistorUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7A35A2BF5D07ECBEC9EAD535EA16813 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68127925BB780403ACA2E94E0555842 /* UITextField+Shake-umbrella.h in Headers */,
+				0DDAE78F28147F1692A40C3ECC00705E /* UITextField+Shake.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		420C4EA0871F3835D2C6B5054B40E33F /* Pods-Resistor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 11C2AA2CFD6768012CB881DC9703BC75 /* Build configuration list for PBXNativeTarget "Pods-Resistor" */;
+			buildPhases = (
+				BDD9A906FF3A7FD2593179DAA81EA974 /* Sources */,
+				F434DF62A07654B05B3C24B9AE7C9D3E /* Frameworks */,
+				307339F6CBB5C086DD6F30BA80212FFB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31A886ECEA0F19A2164DCCBD6483647C /* PBXTargetDependency */,
+			);
+			name = "Pods-Resistor";
+			productName = "Pods-Resistor";
+			productReference = 5046AF6F532A14C0486274E06C343B45 /* Pods_Resistor.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6AF624EC6ACCB81BC1471ECD82A56992 /* UITextField+Shake */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC5CEB95D8E9DD6E88A98867BA07C51C /* Build configuration list for PBXNativeTarget "UITextField+Shake" */;
+			buildPhases = (
+				B67F5A79BD98E13F4E951EE24A8F0EF5 /* Sources */,
+				B72B10C9E1334D842FFA00D266C3CFF8 /* Frameworks */,
+				E7A35A2BF5D07ECBEC9EAD535EA16813 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UITextField+Shake";
+			productName = "UITextField+Shake";
+			productReference = 759E7BEE45FBA744D2462555162D971A /* UITextField_Shake.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B39581F495372827B39F6962E695E026 /* Pods-ResistorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BB52749BB095A4A471730CC94818190 /* Build configuration list for PBXNativeTarget "Pods-ResistorUITests" */;
+			buildPhases = (
+				65C5B43EBB9952EEB10D81D229D0A94D /* Sources */,
+				3C3BC7A097CF2137F67AC2F5AD06E250 /* Frameworks */,
+				6D116CAA2CB931928DF4E9A082B9088B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ResistorUITests";
+			productName = "Pods-ResistorUITests";
+			productReference = E77BDFF3AAA0AF78C16BA9AC58ECAD52 /* Pods_ResistorUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D1D28F8F08D9D7E63D16A324086B2510 /* Pods-ResistorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0AF08B9D394FC459A3507EDEEB7558A /* Build configuration list for PBXNativeTarget "Pods-ResistorTests" */;
+			buildPhases = (
+				8070D9BB1A6106502C9F8B209D913360 /* Sources */,
+				B24920D52A5A769E07A2484D0F5E79F6 /* Frameworks */,
+				190B7C79F3979B2B7149AEF4D83CC83A /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-ResistorTests";
+			productName = "Pods-ResistorTests";
+			productReference = F59594A735890E7DBEDE56B9CC7B8D9C /* Pods_ResistorTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 245E8DAE90FC32628A9B577DDBB26D4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				420C4EA0871F3835D2C6B5054B40E33F /* Pods-Resistor */,
+				D1D28F8F08D9D7E63D16A324086B2510 /* Pods-ResistorTests */,
+				B39581F495372827B39F6962E695E026 /* Pods-ResistorUITests */,
+				6AF624EC6ACCB81BC1471ECD82A56992 /* UITextField+Shake */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65C5B43EBB9952EEB10D81D229D0A94D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE2D5ADF0397B17C14C95210AF1EE1A6 /* Pods-ResistorUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8070D9BB1A6106502C9F8B209D913360 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				304A7740CA81F9CC479ACBFB4A4AD8CA /* Pods-ResistorTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B67F5A79BD98E13F4E951EE24A8F0EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38A27959833A19A0AB3DB37176E65F26 /* UITextField+Shake-dummy.m in Sources */,
+				A7C6C3720F20A4E5E35CF5E5488B67DA /* UITextField+Shake.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD9A906FF3A7FD2593179DAA81EA974 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0764481C1892B071415A3B18805B21CB /* Pods-Resistor-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31A886ECEA0F19A2164DCCBD6483647C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "UITextField+Shake";
+			target = 6AF624EC6ACCB81BC1471ECD82A56992 /* UITextField+Shake */;
+			targetProxy = 94A37A979E91217286BF42FD68D1AAC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		397653E06A415ECEC9A8C83518703302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E75EC321AA4AB16ECE91D930F00505B /* UITextField+Shake.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UITextField+Shake/UITextField+Shake-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UITextField+Shake/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UITextField+Shake/UITextField+Shake.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = UITextField_Shake;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		413885B4C410C8F845DDA21754999D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFDEE25C7A7572881D68F85A2231A490 /* Pods-ResistorTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResistorTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResistorTests/Pods-ResistorTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResistorTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7012B217D463D79DC8081CBD510DA60B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 284E8F44ECA3761D728B937B6897AF40 /* Pods-ResistorUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResistorUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResistorUITests/Pods-ResistorUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResistorUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		86B59DFE64CF5F9867B2CCC03A2B18F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E75EC321AA4AB16ECE91D930F00505B /* UITextField+Shake.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/UITextField+Shake/UITextField+Shake-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UITextField+Shake/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/UITextField+Shake/UITextField+Shake.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = UITextField_Shake;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8BEF156A3B7AE9884CD6ED75B4910062 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F2A1F3E9104D8B23F2D1BCA2CA63C72 /* Pods-ResistorUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResistorUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResistorUITests/Pods-ResistorUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResistorUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		98D2AFB5AA5C2132F1D7222252E701C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A16641E47721BEF57BAF7876323798 /* Pods-Resistor.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Resistor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Resistor/Pods-Resistor.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Resistor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C852281CEE12D2146D7C98E0F5EE3C43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46A6B8B784263ED2AD5014EBE5E9B03D /* Pods-Resistor.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Resistor/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Resistor/Pods-Resistor.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Resistor;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4862FCB1731ADB95F6C8130D88F796D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5916768F8B0AFA97EF641688EA91E01 /* Pods-ResistorTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-ResistorTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ResistorTests/Pods-ResistorTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ResistorTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		11C2AA2CFD6768012CB881DC9703BC75 /* Build configuration list for PBXNativeTarget "Pods-Resistor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C852281CEE12D2146D7C98E0F5EE3C43 /* Debug */,
+				98D2AFB5AA5C2132F1D7222252E701C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6BB52749BB095A4A471730CC94818190 /* Build configuration list for PBXNativeTarget "Pods-ResistorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7012B217D463D79DC8081CBD510DA60B /* Debug */,
+				8BEF156A3B7AE9884CD6ED75B4910062 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0AF08B9D394FC459A3507EDEEB7558A /* Build configuration list for PBXNativeTarget "Pods-ResistorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				413885B4C410C8F845DDA21754999D2C /* Debug */,
+				E4862FCB1731ADB95F6C8130D88F796D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC5CEB95D8E9DD6E88A98867BA07C51C /* Build configuration list for PBXNativeTarget "UITextField+Shake" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				397653E06A415ECEC9A8C83518703302 /* Debug */,
+				86B59DFE64CF5F9867B2CCC03A2B18F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

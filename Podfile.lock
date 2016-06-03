@@ -1,0 +1,12 @@
+PODS:
+  - UITextField+Shake (1.1.2)
+
+DEPENDENCIES:
+  - UITextField+Shake (~> 1.1)
+
+SPEC CHECKSUMS:
+  UITextField+Shake: 47cc0429dafb3da580686339ad2da091249a8ea2
+
+PODFILE CHECKSUM: d89a7f3a6f3112caf4ecb587265fc36f92379edb
+
+COCOAPODS: 1.0.0

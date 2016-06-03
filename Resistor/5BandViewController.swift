@@ -1,8 +1,8 @@
 //
-//  5BandViewController.swift
+//  MainView.swift
 //  Resistor
 //
-//  Created by Justin Oroz on 5/30/16.
+//  Created by Justin Oroz on 5/13/16.
 //  Copyright © 2016 Justin Oroz. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 import iAd
 
-class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
-        
+class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
+    
     let valueStripe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
     let toleranceStripe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
     
@@ -27,14 +27,18 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBOutlet weak var invisEditButton: UIButton!
     
+    var value = "10"
+    
+    var unit = "Ω"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        resistancePicker.selectRow(2, inComponent: 7, animated: false)
+        resistancePicker.selectRow(2, inComponent:  Band5.Five.rawValue, animated: false)
         
-        calculateResistance()
+        calculateResistance(pullBands())
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UIKeyboardWillShowNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UITextFieldTextDidBeginEditingNotification", object: nil)
@@ -44,6 +48,15 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         self.view.bringSubviewToFront(invisEditButton)
         self.view.bringSubviewToFront(invisPickerButton)
+        
+        // initialize custom keyboard
+        // TODO: Decide on Keyboard Height
+        let keyboardView = customKeyboard(frame: CGRect(x: 0, y: 0, width: 0, height: self.view.frame.height * 0.45))
+        keyboardView.delegate = self // the view controller will be notified by the keyboard whenever a key is tapped
+        
+        // replace system keyboard with custom keyboard
+        resistanceField.inputView = keyboardView
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,8 +64,345 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         // Dispose of any resources that can be recreated.
     }
     
-    // UIPickerViewDelegate functions
+    func pullBands() -> [Band5: Int] {
+        var bands: [Band5: Int] = [:]
+        
+        bands[.One] = resistancePicker.selectedRowInComponent(Band5.One.rawValue) + 1
+        bands[.Two] = resistancePicker.selectedRowInComponent(Band5.Two.rawValue)
+        bands[.Three] = resistancePicker.selectedRowInComponent(Band5.Three.rawValue)
+        bands[.Four] = resistancePicker.selectedRowInComponent(Band5.Four.rawValue)
+        bands[.Five] = resistancePicker.selectedRowInComponent(Band5.Five.rawValue)
+        
+        return bands
+    }
     
+    // calculate resistance based on bands
+    func calculateResistance(bands: [Band5: Int]) {
+        
+        var resistance: Double = 0
+        
+        resistance += Double(bands[.One]!) * 100
+        
+        resistance += Double(bands[.Two]!) * 10
+        
+        resistance += Double(bands[.Three]!)
+        
+        if bands[.Four]! < 10 {
+            resistance *= pow(10, Double(bands[.Four]!))
+        } else {
+            resistance *= pow(10, 9 - Double(bands[.Four]!))
+        }
+        
+        
+        let prefix = ["", "k", "M", "G"]
+        
+        var count = 0
+        while resistance >= pow(10.0, 3.0) {
+            resistance /= pow(10.0, 3.0)
+            count += 1
+        }
+        
+        if (bands[.Four]! > 10) {
+            value = resistance.format(".2")
+        } else if (resistance < 10) {
+            value = resistance.format(".1")
+        } else {
+            value = resistance.format(".0")
+        }
+        
+        unit = prefix[count] + "Ω"
+        formatLabel()
+        
+        let toleranceValue = [ 20.0, 10.0, 5.0, 2.0, 1.0, 0.5, 0.25, 0.1, 0.05 ]
+        
+        toleranceLabel.text = "± \(toleranceValue[bands[.Five]!])% Tolerance"
+        
+    }
+    
+    @IBAction func editResistance(sender: AnyObject) {
+        resistanceField.becomeFirstResponder()
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        keyDone()
+    }
+    
+    
+    // calculate bands based on text input
+    func calculateBands(value: String, unit: String) -> [Band5: Int]? {
+        
+        //TODO: FIX LOGIC: answer is * 10
+        
+        var bandsResult: [Band5: Int] = [:]
+        
+        let allowedCharacters = "0123456789."
+        
+        let alert = UIAlertController(title: "Invalid Entry", message: "", preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: "OK", style: .Default) {
+            (action) in
+        }
+        alert.addAction(OKAction)
+        
+        if value.containsOnlyCharactersIn(allowedCharacters) {
+            
+            var number = Double.init(value)
+            var count = 0
+            
+            if value == "" || value == "." || Double.init(value) == 0 || number == nil {
+                return nil
+            } else {
+                var exp: Double
+                
+                switch unit {
+                case "kΩ", "KΩ":
+                    exp = 3
+                    break
+                case "mΩ", "MΩ":
+                    exp = 6
+                    break
+                case "gΩ", "GΩ":
+                    exp = 9
+                    break
+                default:
+                    exp = 0
+                    break
+                }
+                
+                number! *= pow(10.0, exp)
+                
+                if number < 1 {
+                    number! *= 1000
+                    number = round(number!)
+                    number! /= 1000
+                } else if number < 10 {
+                    number! *= 100
+                    number = round(number!)
+                    number! /= 100
+                }
+                
+                while (number >= 10) {
+                    number! /= 10
+                    count += 1
+                    if number < 1000 && number > 100 {
+                        number = round(number!)
+                    }
+                }
+                
+                if count > 12 {
+                    print("Too Large: Maximum 999GΩ")
+                    return nil
+                } else if ( number < 1.0 ) {
+                    print("Too Small: Minimum 1.0Ω")
+                    return nil
+                }
+                
+                
+                switch count {
+                case 0:
+                    bandsResult[.Four] = 11
+                case 1:
+                    bandsResult[.Four] = 10
+                default:
+                    bandsResult[.Four] = count-2
+                }
+                
+                if number < 1 {
+                    number! *= 1000
+                    number = round(number!)
+                } else {
+                    number! *= 100
+                    number = round(number!)
+                }
+                
+                bandsResult[.One] = Int(number!/100)-1
+                bandsResult[.Two] = Int((number!%100)/10)
+                bandsResult[.Three] = Int(round(number!%10))
+                
+                if bandsResult[.One] >= 9 {
+                    print("Too Large: Maximum 999GΩ")
+                    return nil
+                }
+            }
+            
+        } else {
+            dismissKeyboard(self)
+            self.presentViewController(alert, animated: true) {}
+            return nil
+        }
+        
+        return bandsResult
+    }
+    
+    func setBands(bands: [Band5: Int]?) {
+        if bands != nil {
+            for band in bands! {
+                resistancePicker.selectRow(band.1, inComponent: band.0.rawValue, animated: true)
+            }
+        }
+        
+        
+    }
+    
+    @IBAction func revertBands(sender: AnyObject) {
+        calculateResistance(pullBands())
+    }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        keyDone()
+    }
+    
+    func keyboardHidden(){
+        //invisEditButton.hidden = false
+        invisPickerButton.hidden = true
+    }
+    
+    func keyboardShown(){
+        //invisEditButton.hidden = true
+        
+        value = ""
+        
+        invisPickerButton.hidden = false
+    }
+    
+}
+
+enum Band5: Int {
+    case One = 1
+    case Two = 3
+    case Three = 4
+    case Four = 5
+    case Five = 7
+}
+
+// MARK: - Custom Keyboard Methods
+
+extension _5BandViewController: KeyboardDelegate {
+    func keyDone() {
+        UIView.animateWithDuration(0.5) {
+            self.view.endEditing(true)
+        }
+    }
+    
+    func keyWasTapped(character: String) {
+        
+        let prospectiveNewValue = calculateBands(value + character, unit: unit)
+        let oldValue = calculateBands(value, unit: unit)
+        let decimalTester = calculateBands(value  + "9", unit: unit)
+        
+        if value == "" {
+            if character == "0" || character == "." {
+                if  calculateBands("0.9", unit: unit) != nil {
+                    value.appendContentsOf("0.")
+                } else {
+                    self.resistanceField.shake()
+                }
+            } else {
+                value.appendContentsOf(character)
+            }
+        } else if character == "." {
+            if !value.containsString(".") && calculateBands(value + ".9", unit: unit) != nil {
+                if oldValue == nil {
+                    value.appendContentsOf(character)
+                } else if oldValue! != calculateBands(value + ".9", unit: unit)! {
+                    value.appendContentsOf(character)
+                } else {
+                    self.resistanceField.shake()
+                }
+            } else {
+                self.resistanceField.shake()
+            }
+            
+        } else if character == "0" && value.containsOnlyCharactersIn(".0") {
+            if calculateBands(value  + "09", unit: unit) != nil && Double.init(value + "09") >= 0.001  {
+                value.appendContentsOf(character)
+            } else {
+                self.resistanceField.shake()
+            }
+        } else if prospectiveNewValue == nil {
+            self.resistanceField.shake()
+        } else if Double.init(value + character) >= 1000000 {
+            self.resistanceField.shake()
+        } else if value.containsString(".") && prospectiveNewValue != nil && Double.init(value + character) >= 0.001 {
+            if oldValue == nil || prospectiveNewValue! != oldValue!{
+                value.appendContentsOf(character)
+            } else  {
+                self.resistanceField.shake()
+            }
+            
+        } else if oldValue != nil && prospectiveNewValue! == oldValue! {
+            self.resistanceField.shake()
+        } else {
+            value.appendContentsOf(character)
+        }
+        
+        formatLabel()
+        setBands(calculateBands(value, unit: unit))
+    }
+    
+    
+    func backspace() {
+        if value == "0." {
+            value = ""
+        } else if !value.isEmpty {
+            value.removeAtIndex(value.endIndex.predecessor())
+        }
+        formatLabel()
+        setBands(calculateBands(value, unit: unit))
+    }
+    
+    func prefix(tag: Int) {
+        switch tag {
+        case 1:
+            unit = "Ω"
+        case 2:
+            unit = "KΩ"
+            
+            while value != "" && (calculateBands(value, unit: unit) == nil) {
+                value.removeAtIndex(value.endIndex.predecessor())
+            }
+            
+        case 3:
+            unit = "MΩ"
+            
+            while value != "" && (calculateBands(value, unit: unit) == nil) {
+                value.removeAtIndex(value.endIndex.predecessor())
+            }
+        case 4:
+            unit = "GΩ"
+            
+            while value != "" && (calculateBands(value, unit: unit) == nil) {
+                value.removeAtIndex(value.endIndex.predecessor())
+            }
+            
+        default:
+            break
+        }
+        formatLabel()
+        setBands(calculateBands(value, unit: unit))
+    }
+    
+    func clear() {
+        value = ""
+        formatLabel()
+    }
+    
+    func formatLabel() {
+        self.resistanceField.text = "\(value)\(unit)"
+    }
+    
+    func unitButtonHighlighting(unit: String) {
+
+    }
+    
+}
+
+extension _5BandViewController: UIPickerViewDelegate {
+    // MARK: - UIPickerViewDelegate functions
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        calculateResistance(pullBands())
+    }
     
     func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         
@@ -87,7 +437,6 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    //returns view containing item in picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         
         var barWidth = self.view.bounds.width * 0.07
@@ -139,92 +488,50 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
         
     }
-    
-    // UIPickerViewDataSource protocol functions
+}
+
+
+// MARK: - UIPickerViewDataSource protocol functions
+
+extension _5BandViewController: UIPickerViewDataSource {
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 9
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch component {
-        case 1:
+        switch Band5.init(rawValue: component) {
+        case .One?:
             return 9
-        case 3,4:
+        case .Two?, .Three?:
             return 10
-        case 5:
+        case .Four?:
             return 12
-        case 7:
+        case .Five?:
             return 9
         default:
             return 0
         }
     }
-    
-    
-    // picked resistance
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        calculateResistance()
+}
+
+
+// MARK: - UITextfieldDelegate functions
+extension _5BandViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(textField: UITextField) {
+        value = ""
+        unit = "Ω"
+        formatLabel()
+        textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.beginningOfDocument)
     }
+}
+
+
+// MARK: - Deprecated
+extension _5BandViewController {
+    // calculate bands based on text input
     
-    func calculateResistance(){
-        
-        var resistance: Double = 0
-        let bandOne = resistancePicker.selectedRowInComponent(1) + 1
-        let bandTwo = resistancePicker.selectedRowInComponent(3)
-        let bandThree = resistancePicker.selectedRowInComponent(4)
-        let bandFour = resistancePicker.selectedRowInComponent(5)
-        let bandFive = resistancePicker.selectedRowInComponent(7)
-        
-        resistance += Double(bandOne) * 100
-        
-        resistance += Double(bandTwo) * 10
-        
-        resistance += Double(bandThree)
-        
-        if bandFour < 10 {
-            resistance *= pow(10, Double(bandFour))
-        } else {
-            resistance *= pow(10, 9 - Double(bandFour))
-        }
-        
-        
-        let prefix = ["", "k", "M", "G", "T"]
-        
-        var count = 0
-        while resistance >= pow(10.0, 3.0) {
-            resistance /= pow(10.0, 3.0)
-            count += 1
-        }
-        
-        if (bandFour > 10) {
-            resistanceField.text = "\(resistance.format(".2"))" + prefix[count] + "Ω"
-        } else if (resistance < 10) {
-            resistanceField.text = "\(resistance.format(".2"))" + prefix[count] + "Ω"
-        } else if (resistance < 100) {
-            resistanceField.text = "\(resistance.format(".1"))" + prefix[count] + "Ω"
-        } else {
-            resistanceField.text = "\(resistance.format(".0"))" + prefix[count] + "Ω"
-        }
-        
-        
-        let toleranceValue = [ 20.0, 10.0, 5.0, 2.0, 1.0, 0.5, 0.25, 0.1, 0.05 ]
-        
-        toleranceLabel.text = "± \(toleranceValue[bandFive])% Tolerance"
-        
-    }
-    
-    @IBAction func editResistance(sender: AnyObject) {
-        resistanceField.becomeFirstResponder()
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func calculateBands(sender: AnyObject) {
+    func deprecatedCalculateResistance(){
         
         let enteredText = resistanceField.text!.lowercaseString
         let allowedCharacters = "0123456789.KkGgMmΩω"
@@ -284,7 +591,7 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     number! *= pow(10.0, Double(exp))
                 }
                 
-
+                
             } else {
                 dismissKeyboard(self)
                 self.presentViewController(alert, animated: true) {}
@@ -315,56 +622,35 @@ class _5BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             switch count {
             case 0:
-                resistancePicker.selectRow(11, inComponent: 5, animated: true)
+                resistancePicker.selectRow(11, inComponent: Band5.Four.rawValue, animated: true)
                 break
             case 1:
-                resistancePicker.selectRow(10, inComponent: 5, animated: true)
+                resistancePicker.selectRow(10, inComponent: Band5.Four.rawValue, animated: true)
                 break
             default:
-                resistancePicker.selectRow(count-2, inComponent: 5, animated: true)
+                resistancePicker.selectRow(count-2, inComponent: Band5.Four.rawValue, animated: true)
                 break
             }
             
             
-            if number == 10 {
-                resistancePicker.selectRow(0, inComponent: 3, animated: true)
-                resistancePicker.selectRow(0, inComponent: 4, animated: true)
-            } else if number < 1 {
+            if number < 1 {
                 number! *= 1000
-                resistancePicker.selectRow(Int(number!/100)-1, inComponent: 1, animated: true)
-                resistancePicker.selectRow(Int((number!%100)/10), inComponent: 3, animated: true)
-                resistancePicker.selectRow(Int(round(number!%10)), inComponent: 4, animated: true)
             } else {
                 number! *= 100
-                resistancePicker.selectRow(Int(number!/100)-1, inComponent: 1, animated: true)
-                resistancePicker.selectRow(Int((number!%100)/10), inComponent: 3, animated: true)
-                resistancePicker.selectRow(Int(round(number!%10)), inComponent: 4, animated: true)
             }
+            
+            resistancePicker.selectRow(Int(number!/100)-1, inComponent: Band5.One.rawValue, animated: true)
+            resistancePicker.selectRow(Int((number!%100)/10), inComponent: Band5.Two.rawValue, animated: true)
+            resistancePicker.selectRow(Int(round(number!%10)), inComponent: Band5.Three.rawValue, animated: true)
             
         } else {
             dismissKeyboard(self)
             self.presentViewController(alert, animated: true) {}
             return
         }
+
         
     }
     
-    @IBAction func revertBands(sender: AnyObject) {
-        calculateResistance()
-    }
-    
-    @IBAction func dismissKeyboard(sender: AnyObject) {
-        self.view.endEditing(true)
-    }
-    
-    func keyboardHidden(){
-        invisEditButton.hidden = false
-        invisPickerButton.hidden = true
-    }
-    
-    func keyboardShown(){
-        invisEditButton.hidden = true
-        invisPickerButton.hidden = false
-    }
-    
 }
+

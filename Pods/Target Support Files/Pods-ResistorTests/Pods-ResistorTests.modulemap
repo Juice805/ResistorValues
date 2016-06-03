@@ -1,0 +1,6 @@
+framework module Pods_ResistorTests {
+  umbrella header "Pods-ResistorTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

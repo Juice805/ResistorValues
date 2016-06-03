@@ -9,6 +9,17 @@
 import UIKit
 
 class LongPressTextField: UITextField {
-    internal var editable = false
+    
+    let insets: UIEdgeInsets = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
+    
+//    override func textRectForBounds(bounds: CGRect) -> CGRect {
+//        return UIEdgeInsetsInsetRect(super.textRectForBounds(bounds), insets)
+//    }
+    
+    override func editingRectForBounds(bounds: CGRect) -> CGRect {
+        return UIEdgeInsetsInsetRect(super.editingRectForBounds(bounds), insets)
+
+    }
+    
 
 }
