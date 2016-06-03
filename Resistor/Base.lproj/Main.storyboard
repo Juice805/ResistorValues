@@ -81,7 +81,6 @@
                                 <connections>
                                     <action selector="deprecatedCalculateBands:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="C5i-Ld-SvP"/>
                                     <action selector="revertBands:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="7Rc-g8-ETj"/>
-                                    <action selector="valueEdited:" destination="BYZ-38-t0r" eventType="editingChanged" id="Pkz-K2-Sel"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SXV-jz-LNs"/>
                                 </connections>
                             </textField>
@@ -229,20 +228,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3rF-Wx-efa" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="48" width="414" height="80"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="NPP-Yj-Ap2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="calculateBands:" destination="I08-tq-1zG" eventType="editingDidEndOnExit" id="f6z-ze-VKd"/>
-                                    <action selector="revertBands:" destination="I08-tq-1zG" eventType="editingDidEnd" id="40g-6k-Khq"/>
-                                    <outlet property="delegate" destination="I08-tq-1zG" id="8uh-2D-gdC"/>
-                                </connections>
-                            </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZw-gn-Ukk">
                                 <rect key="frame" x="268" y="535" width="108" height="88"/>
                                 <connections>
@@ -262,6 +247,21 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3rF-Wx-efa" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49" width="414" height="80"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="NPP-Yj-Ap2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="75"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="calculateBands:" destination="I08-tq-1zG" eventType="editingDidEndOnExit" id="f6z-ze-VKd"/>
+                                    <action selector="revertBands:" destination="I08-tq-1zG" eventType="editingDidEnd" id="40g-6k-Khq"/>
+                                    <outlet property="delegate" destination="I08-tq-1zG" id="8uh-2D-gdC"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -367,8 +367,9 @@
                                     <outlet property="delegate" destination="Bvs-E6-1jZ" id="S4i-S5-caH"/>
                                 </connections>
                             </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9xE-ev-8FU" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="1.00kΩ" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="9xE-ev-8FU" customClass="LongPressTextField" customModule="Resistor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="48" width="414" height="80"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="DIs-fY-9hr"/>

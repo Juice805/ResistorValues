@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  4BandViewController.swift
 //  Resistor
 //
 //  Created by Justin Oroz on 5/13/16.
@@ -225,6 +225,11 @@ class _4BandViewController: UIViewController, UIGestureRecognizerDelegate {
                 bandsResult[.Two] = Int(round(number!%10))
             }
             
+            if bandsResult[.One] >= 9 {
+                print("Too Large: Maximum 999GΩ")
+                return nil
+            }
+            
         } else {
             dismissKeyboard(self)
             self.presentViewController(alert, animated: true) {}
@@ -276,7 +281,7 @@ enum Band4: Int {
 
 extension _4BandViewController: KeyboardDelegate {
     func keyDone() {
-        UIView.animateWithDuration(0.5) {
+        UIView.animateWithDuration(0.35) {
             self.view.endEditing(true)
         }
         
@@ -497,16 +502,18 @@ extension _4BandViewController: UIPickerViewDelegate {
     
     func getColor(component: Int, row: Int) -> UIColor {
         var colorCode = row
-        if component == 1 {
+        
+        let band = Band4.init(rawValue: component)
+        if band == .One {
             colorCode = row + 1
         } else {
             colorCode = row
         }
         
-        switch component {
-        case 1, 3, 4:
+        switch band {
+        case .One?, .Two?, .Three?:
             return valueStripe[colorCode]
-        case 5:
+        case .Four?:
             return toleranceStripe[colorCode]
         default:
             return UIColor()

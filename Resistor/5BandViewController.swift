@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  5BandViewController.swift
 //  Resistor
 //
 //  Created by Justin Oroz on 5/13/16.
@@ -31,12 +31,14 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var unit = "Ω"
     
+    var myKeyboard = customKeyboard()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        resistancePicker.selectRow(2, inComponent:  Band5.Five.rawValue, animated: false)
+        resistancePicker.selectRow(2, inComponent: Band5.Five.rawValue, animated: false)
         
         calculateResistance(pullBands())
         
@@ -46,16 +48,17 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UIKeyboardWillHideNotification", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UITextFieldTextDidEndEditingNotification", object: nil)
         
+        
         self.view.bringSubviewToFront(invisEditButton)
         self.view.bringSubviewToFront(invisPickerButton)
         
         // initialize custom keyboard
         // TODO: Decide on Keyboard Height
-        let keyboardView = customKeyboard(frame: CGRect(x: 0, y: 0, width: 0, height: self.view.frame.height * 0.45))
-        keyboardView.delegate = self // the view controller will be notified by the keyboard whenever a key is tapped
+        self.myKeyboard = customKeyboard(frame: CGRect(x: 0, y: 0, width: 0, height: self.view.frame.height * 0.35))
+        self.myKeyboard.delegate = self // the view controller will be notified by the keyboard whenever a key is tapped
         
         // replace system keyboard with custom keyboard
-        resistanceField.inputView = keyboardView
+        resistanceField.inputView = self.myKeyboard
         
     }
     
@@ -77,7 +80,7 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     // calculate resistance based on bands
-    func calculateResistance(bands: [Band5: Int]) {
+    func calculateResistance(bands: [Band5: Int], dryRun: Bool = false) -> String? {
         
         var resistance: Double = 0
         
@@ -94,7 +97,7 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         
-        let prefix = ["", "k", "M", "G"]
+        let prefix = ["", "K", "M", "G"]
         
         var count = 0
         while resistance >= pow(10.0, 3.0) {
@@ -103,11 +106,21 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         if (bands[.Four]! > 10) {
-            value = resistance.format(".2")
+            let result = resistance.format(".2")
+            if dryRun == true {return result}
+            value = result
         } else if (resistance < 10) {
-            value = resistance.format(".1")
+            let result = resistance.format(".2")
+            if dryRun == true {return result}
+            value = result
+        } else if (resistance < 100) {
+            let result = resistance.format(".1")
+            if dryRun == true {return result}
+            value = result
         } else {
-            value = resistance.format(".0")
+            let result = resistance.format(".0")
+            if dryRun == true {return result}
+            value = result
         }
         
         unit = prefix[count] + "Ω"
@@ -116,6 +129,8 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
         let toleranceValue = [ 20.0, 10.0, 5.0, 2.0, 1.0, 0.5, 0.25, 0.1, 0.05 ]
         
         toleranceLabel.text = "± \(toleranceValue[bands[.Five]!])% Tolerance"
+        
+        return nil
         
     }
     
@@ -130,8 +145,6 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
     
     // calculate bands based on text input
     func calculateBands(value: String, unit: String) -> [Band5: Int]? {
-        
-        //TODO: FIX LOGIC: answer is * 10
         
         var bandsResult: [Band5: Int] = [:]
         
@@ -259,8 +272,6 @@ class _5BandViewController: UIViewController, UIGestureRecognizerDelegate {
     func keyboardShown(){
         //invisEditButton.hidden = true
         
-        value = ""
-        
         invisPickerButton.hidden = false
     }
     
@@ -278,9 +289,11 @@ enum Band5: Int {
 
 extension _5BandViewController: KeyboardDelegate {
     func keyDone() {
-        UIView.animateWithDuration(0.5) {
+        UIView.animateWithDuration(0.35) {
             self.view.endEditing(true)
         }
+        
+        //resistanceField.resignFirstResponder()
     }
     
     func keyWasTapped(character: String) {
@@ -338,7 +351,6 @@ extension _5BandViewController: KeyboardDelegate {
         setBands(calculateBands(value, unit: unit))
     }
     
-    
     func backspace() {
         if value == "0." {
             value = ""
@@ -347,56 +359,89 @@ extension _5BandViewController: KeyboardDelegate {
         }
         formatLabel()
         setBands(calculateBands(value, unit: unit))
+        if value.isEmpty {
+            
+        }
     }
     
     func prefix(tag: Int) {
         switch tag {
         case 1:
             unit = "Ω"
+            
+            if Double.init(value) < 0.1 {
+                value = ""
+            }
+            
         case 2:
             unit = "KΩ"
-            
-            while value != "" && (calculateBands(value, unit: unit) == nil) {
-                value.removeAtIndex(value.endIndex.predecessor())
-            }
             
         case 3:
             unit = "MΩ"
             
-            while value != "" && (calculateBands(value, unit: unit) == nil) {
-                value.removeAtIndex(value.endIndex.predecessor())
-            }
         case 4:
             unit = "GΩ"
-            
-            while value != "" && (calculateBands(value, unit: unit) == nil) {
-                value.removeAtIndex(value.endIndex.predecessor())
-            }
             
         default:
             break
         }
+        
+        while !value.isEmpty && !value.containsOnlyCharactersIn("0.") && (calculateBands(value, unit: unit) == nil) {
+            value.removeAtIndex(value.endIndex.predecessor())
+        }
+        
         formatLabel()
-        setBands(calculateBands(value, unit: unit))
+        if !value.isEmpty {
+            setBands(calculateBands(value, unit: unit))
+        } else {
+            let grayVal = calculateResistance(pullBands(), dryRun: true)!
+            if let possibleBands = calculateBands(grayVal, unit: unit) {
+                setBands(possibleBands)
+            } else {
+                self.resistanceField.textColor = UIColor.init(red: 1.0, green: 0, blue: 0, alpha: 0.35)
+            }
+            
+            
+        }
     }
     
     func clear() {
+        calculateResistance(pullBands())
+        selectUnit()
         value = ""
         formatLabel()
     }
     
     func formatLabel() {
         self.resistanceField.text = "\(value)\(unit)"
+        if !value.isEmpty {
+            self.resistanceField.textColor = UIColor.blackColor()
+        } else {
+            self.resistanceField.text = "\(calculateResistance(pullBands(), dryRun: true)!)\(unit)"
+            self.resistanceField.textColor = UIColor.lightGrayColor()
+        }
     }
     
-    func unitButtonHighlighting(unit: String) {
-
+    func selectUnit(){
+        switch unit {
+        case "Ω":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.ohmButton)
+        case "kΩ", "KΩ":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.kiloButton)
+        case "mΩ", "MΩ":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.megaButton)
+        case "gΩ", "GΩ":
+            self.myKeyboard.unitButtonHighlighting(self.myKeyboard.gigaButton)
+        default:
+            break
+        }
     }
     
 }
 
+
+// MARK: - UIPickerViewDelegate functions
 extension _5BandViewController: UIPickerViewDelegate {
-    // MARK: - UIPickerViewDelegate functions
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
@@ -435,7 +480,7 @@ extension _5BandViewController: UIPickerViewDelegate {
         
     }
     
-    
+    //returns view containing item in picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         
         var barWidth = self.view.bounds.width * 0.07
@@ -471,16 +516,18 @@ extension _5BandViewController: UIPickerViewDelegate {
     
     func getColor(component: Int, row: Int) -> UIColor {
         var colorCode = row
-        if component == 1 {
+        
+        let band = Band5.init(rawValue: component)
+        if band == .One {
             colorCode = row + 1
         } else {
             colorCode = row
         }
         
-        switch component {
-        case 1, 3, 4, 5:
+        switch band {
+        case .One?, .Two?, .Three?, .Four?:
             return valueStripe[colorCode]
-        case 7:
+        case .Five?:
             return toleranceStripe[colorCode]
         default:
             return UIColor()
@@ -519,10 +566,13 @@ extension _5BandViewController: UIPickerViewDataSource {
 extension _5BandViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         value = ""
-        unit = "Ω"
         formatLabel()
+        
+        selectUnit()
+        
         textField.selectedTextRange = textField.textRangeFromPosition(textField.beginningOfDocument, toPosition: textField.beginningOfDocument)
     }
+    
 }
 
 
@@ -530,7 +580,7 @@ extension _5BandViewController: UITextFieldDelegate {
 extension _5BandViewController {
     // calculate bands based on text input
     
-    func deprecatedCalculateResistance(){
+    @IBAction func deprecatedCalculateBands(sender: AnyObject)  {
         
         let enteredText = resistanceField.text!.lowercaseString
         let allowedCharacters = "0123456789.KkGgMmΩω"
