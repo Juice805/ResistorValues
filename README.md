@@ -6,3 +6,5 @@ Scroll through bands on a clean and easy to read resitor to find the correct val
 
 Find what resistor you need!
 Long press on the resistance value to enter in your own number. The resistor will show you what you're looking for!
+
+Available on the Appstore: https://itunes.apple.com/us/app/resistor-band-reference/id1114225040
