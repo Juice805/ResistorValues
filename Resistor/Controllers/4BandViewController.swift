@@ -9,11 +9,35 @@
 import UIKit
 import AVFoundation
 import iAd
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIGestureRecognizerDelegate {
         
-    let valueStripe = [UIColor.blackColor(), UIColor.brownColor(), UIColor.redColor(), UIColor.orangeColor(), UIColor.yellowColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor(), UIColor.whiteColor(), UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
-    let toleranceStripe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.redColor(), UIColor.brownColor(), UIColor.greenColor(), UIColor.blueColor(), UIColor.purpleColor(), UIColor.grayColor()]
+    let valueStripe = [UIColor.black, UIColor.brown, UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray, UIColor.white, UIColor(patternImage: UIImage(named: "gold")!), UIColor(patternImage: UIImage(named: "silver")!)]
+    let toleranceStripe = [UIColor(red:0.87, green:0.85, blue:0.73, alpha:1.0), UIColor(patternImage: UIImage(named: "silver")!), UIColor(patternImage: UIImage(named: "gold")!), UIColor.red, UIColor.brown, UIColor.green, UIColor.blue, UIColor.purple, UIColor.gray]
     
     @IBOutlet weak var ResistorImage: UIImageView!
         
@@ -36,14 +60,14 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 
         calculateResistance()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UIKeyboardWillShowNotification", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardShown), name: "UITextFieldTextDidBeginEditingNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: NSNotification.Name(rawValue: "UIKeyboardWillShowNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: NSNotification.Name(rawValue: "UITextFieldTextDidBeginEditingNotification"), object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UIKeyboardWillHideNotification", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardHidden), name: "UITextFieldTextDidEndEditingNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHidden), name: NSNotification.Name(rawValue: "UIKeyboardWillHideNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHidden), name: NSNotification.Name(rawValue: "UITextFieldTextDidEndEditingNotification"), object: nil)
         
-        self.view.bringSubviewToFront(invisEditButton)
-        self.view.bringSubviewToFront(invisPickerButton)
+        self.view.bringSubview(toFront: invisEditButton)
+        self.view.bringSubview(toFront: invisPickerButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +78,7 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // UIPickerViewDelegate functions
     
     
-    func pickerView(pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         
         switch component {
         case 0: // spacer
@@ -71,7 +95,7 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         
         switch component {
         case 1: // first stripe
@@ -86,7 +110,7 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     //returns view containing item in picker
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         let barWidth = self.view.bounds.width * 0.07
         
@@ -114,7 +138,7 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
     
-    func getColor(component: Int, row: Int) -> UIColor {
+    func getColor(_ component: Int, row: Int) -> UIColor {
         var colorCode = row
         if component == 1 {
             colorCode = row + 1
@@ -135,11 +159,11 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // UIPickerViewDataSource protocol functions
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 7
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 1:
             return 9
@@ -157,7 +181,7 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // picked resistance
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         calculateResistance()
     }
@@ -165,10 +189,10 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     func calculateResistance(){
         
         var resistance: Double = 0
-        let bandOne = resistancePicker.selectedRowInComponent(1) + 1
-        let bandTwo = resistancePicker.selectedRowInComponent(3)
-        let bandThree = resistancePicker.selectedRowInComponent(4)
-        let bandFour = resistancePicker.selectedRowInComponent(5)
+        let bandOne = resistancePicker.selectedRow(inComponent: 1) + 1
+        let bandTwo = resistancePicker.selectedRow(inComponent: 3)
+        let bandThree = resistancePicker.selectedRow(inComponent: 4)
+        let bandFour = resistancePicker.selectedRow(inComponent: 5)
         
         resistance += Double(bandOne) * 10
         
@@ -204,28 +228,28 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
     }
 
-    @IBAction func editResistance(sender: AnyObject) {
+    @IBAction func editResistance(_ sender: AnyObject) {
         resistanceField.becomeFirstResponder()
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    @IBAction func calculateBands(sender: AnyObject) {
+    @IBAction func calculateBands(_ sender: AnyObject) {
         
-        let enteredText = resistanceField.text!.lowercaseString
+        let enteredText = resistanceField.text!.lowercased()
         let allowedCharacters = "0123456789.KkGgMmΩω"
         
-        let alert = UIAlertController(title: "Invalid Entry", message: "", preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: "OK", style: .Default) {
+        let alert = UIAlertController(title: "Invalid Entry", message: "", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) {
             (action) in
         }
         alert.addAction(OKAction)
         
         if enteredText.containsOnlyCharactersIn(allowedCharacters) {
             
-            let newString = enteredText.stringByReplacingOccurrencesOfString("Ω", withString: "").stringByReplacingOccurrencesOfString("ω", withString: "")
+            let newString = enteredText.replacingOccurrences(of: "Ω", with: "").replacingOccurrences(of: "ω", with: "")
             
             var number: Double?
             var count = 0
@@ -237,16 +261,16 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 
                 if (number == nil) {
                     dismissKeyboard(self)
-                    self.presentViewController(alert, animated: true) {}
+                    self.present(alert, animated: true) {}
                     return
                 }
                 
                 
-            } else if (newString.countCharactersIn("KkGgMm") == 1 && newString.substringFromIndex(newString.endIndex.predecessor()).containsOnlyCharactersIn("KkGgMm")) {
+            } else if (newString.countCharactersIn("KkGgMm") == 1 && newString.substring(from: newString.characters.index(before: newString.endIndex)).containsOnlyCharactersIn("KkGgMm")) {
                 
                 var exp: Int
                 
-                let unit = newString.substringFromIndex(newString.endIndex.predecessor())
+                let unit = newString.substring(from: newString.characters.index(before: newString.endIndex))
                 
                 switch unit {
                 case "k", "K":
@@ -263,11 +287,11 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     break
                 }
                 
-                number = Double.init(newString.substringToIndex(newString.endIndex.predecessor()))
+                number = Double.init(newString.substring(to: newString.characters.index(before: newString.endIndex)))
                 
                 if (number == nil) {
                     dismissKeyboard(self)
-                    self.presentViewController(alert, animated: true) {}
+                    self.present(alert, animated: true) {}
                     return
                 } else {
                     number! *= pow(10.0, Double(exp))
@@ -275,7 +299,7 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 
             } else {
                 dismissKeyboard(self)
-                self.presentViewController(alert, animated: true) {}
+                self.present(alert, animated: true) {}
                 return
             }
             
@@ -288,14 +312,14 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 alert.title = "Too Large"
                 alert.message = "Maximum: 99GΩ"
                 dismissKeyboard(self)
-                self.presentViewController(alert, animated: true) {}
+                self.present(alert, animated: true) {}
                 count = 10
                 return
             } else if ( number < 0.1 ) {
                 alert.title = "Too Small"
                 alert.message = "Minimum: 0.10Ω"
                 dismissKeyboard(self)
-                self.presentViewController(alert, animated: true) {}
+                self.present(alert, animated: true) {}
                 number = 0.1
                 return
             }
@@ -318,38 +342,38 @@ class _4BandViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             } else if number < 1 {
                 number! *= 100
                 resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
-                resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+                resistancePicker.selectRow(Int(round(number!.truncatingRemainder(dividingBy: 10))), inComponent: 3, animated: true)
             } else {
                 number! *= 10
                 resistancePicker.selectRow(Int(number!/10)-1, inComponent: 1, animated: true)
-                resistancePicker.selectRow(Int(round(number!%10)), inComponent: 3, animated: true)
+                resistancePicker.selectRow(Int(round(number!.truncatingRemainder(dividingBy: 10))), inComponent: 3, animated: true)
             }
 
             
         } else {
             dismissKeyboard(self)
-            self.presentViewController(alert, animated: true) {}
+            self.present(alert, animated: true) {}
             return
         }
         
     }
     
-    @IBAction func revertBands(sender: AnyObject) {
+    @IBAction func revertBands(_ sender: AnyObject) {
         calculateResistance()
     }
     
-    @IBAction func dismissKeyboard(sender: AnyObject) {
+    @IBAction func dismissKeyboard(_ sender: AnyObject) {
         self.view.endEditing(true)
     }
     
     func keyboardHidden(){
-        invisEditButton.hidden = false
-        invisPickerButton.hidden = true
+        invisEditButton.isHidden = false
+        invisPickerButton.isHidden = true
     }
     
     func keyboardShown(){
-        invisEditButton.hidden = true
-        invisPickerButton.hidden = false
+        invisEditButton.isHidden = true
+        invisPickerButton.isHidden = false
     }
     
 }

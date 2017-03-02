@@ -12,7 +12,7 @@ class ResistancePicker: UIPickerView {
     
     @IBInspectable var selectorColor: UIColor? = nil
     
-    override func didAddSubview(subview: UIView) {
+    override func didAddSubview(_ subview: UIView) {
         super.didAddSubview(subview)
         if let color = selectorColor
         {
@@ -24,7 +24,7 @@ class ResistancePicker: UIPickerView {
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         resignFirstResponder()
         self.endEditing(true)
     }

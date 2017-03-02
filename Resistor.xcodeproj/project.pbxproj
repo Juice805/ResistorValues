@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		151D6AA85C5A883A760A07D5 /* Pods_ResistorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783B318CC34FCDC1DCA57A23 /* Pods_ResistorTests.framework */; };
+		2046F0891AAE42CAB3F5658B /* Pods_ResistorUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E15669BA93276BDECAAEC1 /* Pods_ResistorUITests.framework */; };
+		28B6B7B9F408E3FB0E93F933 /* Pods_Resistor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB3FE61075256952003D5DE /* Pods_Resistor.framework */; };
 		D058F6111CE82482002DB071 /* LongPressTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058F6101CE82482002DB071 /* LongPressTextField.swift */; };
 		D058F6131CE84405002DB071 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D058F6121CE84405002DB071 /* extensions.swift */; };
 		D0618C551CE6564C00449469 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0618C541CE6564C00449469 /* AppDelegate.swift */; };
@@ -40,11 +43,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2DFEE052F2FBAE4DBCD2DAF0 /* Pods-Resistor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resistor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Resistor/Pods-Resistor.release.xcconfig"; sourceTree = "<group>"; };
+		3AE3775AB8423539D17A2992 /* Pods-ResistorUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResistorUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResistorUITests/Pods-ResistorUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4FACAA06E746A919B5759E28 /* Pods-ResistorUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResistorUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResistorUITests/Pods-ResistorUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C7A9E0DD917C5AB326C5F7A /* Pods-ResistorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResistorTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ResistorTests/Pods-ResistorTests.debug.xcconfig"; sourceTree = "<group>"; };
+		783B318CC34FCDC1DCA57A23 /* Pods_ResistorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F754F8D73E627805A3833D5 /* Pods-Resistor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Resistor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Resistor/Pods-Resistor.debug.xcconfig"; sourceTree = "<group>"; };
+		953F22D3422126286A1E67EF /* Pods-ResistorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ResistorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ResistorTests/Pods-ResistorTests.release.xcconfig"; sourceTree = "<group>"; };
+		BAB3FE61075256952003D5DE /* Pods_Resistor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Resistor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D058F6101CE82482002DB071 /* LongPressTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongPressTextField.swift; sourceTree = "<group>"; };
-		D058F6121CE84405002DB071 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		D058F6121CE84405002DB071 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = extensions.swift; path = Resistor/Library/extensions.swift; sourceTree = "<group>"; };
 		D0618C511CE6564C00449469 /* Resistor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Resistor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0618C541CE6564C00449469 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0618C561CE6564C00449469 /* 4BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4BandViewController.swift; sourceTree = "<group>"; };
+		D0618C561CE6564C00449469 /* 4BandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = 4BandViewController.swift; path = ../Controllers/4BandViewController.swift; sourceTree = "<group>"; };
 		D0618C591CE6564C00449469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0618C5B1CE6564C00449469 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0618C5E1CE6564C00449469 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,8 +68,9 @@
 		D0618C761CE6564D00449469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0618C821CE677DE00449469 /* ResistancePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResistancePicker.swift; sourceTree = "<group>"; };
 		D063EF821CFC5FFD00381C53 /* BandPagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BandPagesViewController.swift; sourceTree = "<group>"; };
-		D063EF841CFC609C00381C53 /* 5BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 5BandViewController.swift; sourceTree = "<group>"; };
+		D063EF841CFC609C00381C53 /* 5BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = 5BandViewController.swift; path = ../Controllers/5BandViewController.swift; sourceTree = "<group>"; };
 		D063EF861CFD1AA900381C53 /* 6BandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 6BandViewController.swift; sourceTree = "<group>"; };
+		D0E15669BA93276BDECAAEC1 /* Pods_ResistorUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ResistorUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28B6B7B9F408E3FB0E93F933 /* Pods_Resistor.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151D6AA85C5A883A760A07D5 /* Pods_ResistorTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +94,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2046F0891AAE42CAB3F5658B /* Pods_ResistorUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFD58B65F3C083E160B186D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F754F8D73E627805A3833D5 /* Pods-Resistor.debug.xcconfig */,
+				2DFEE052F2FBAE4DBCD2DAF0 /* Pods-Resistor.release.xcconfig */,
+				6C7A9E0DD917C5AB326C5F7A /* Pods-ResistorTests.debug.xcconfig */,
+				953F22D3422126286A1E67EF /* Pods-ResistorTests.release.xcconfig */,
+				4FACAA06E746A919B5759E28 /* Pods-ResistorUITests.debug.xcconfig */,
+				3AE3775AB8423539D17A2992 /* Pods-ResistorUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D0618C481CE6564C00449469 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +121,8 @@
 				D0618C681CE6564D00449469 /* ResistorTests */,
 				D0618C731CE6564D00449469 /* ResistorUITests */,
 				D0618C521CE6564C00449469 /* Products */,
+				BFD58B65F3C083E160B186D8 /* Pods */,
+				DA020FD4BE6A7B866B9887C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,18 +139,11 @@
 		D0618C531CE6564C00449469 /* Resistor */ = {
 			isa = PBXGroup;
 			children = (
-				D0618C541CE6564C00449469 /* AppDelegate.swift */,
-				D0618C561CE6564C00449469 /* 4BandViewController.swift */,
-				D063EF841CFC609C00381C53 /* 5BandViewController.swift */,
-				D063EF861CFD1AA900381C53 /* 6BandViewController.swift */,
-				D0618C821CE677DE00449469 /* ResistancePicker.swift */,
-				D0618C581CE6564C00449469 /* Main.storyboard */,
-				D063EF821CFC5FFD00381C53 /* BandPagesViewController.swift */,
-				D058F6121CE84405002DB071 /* extensions.swift */,
-				D058F6101CE82482002DB071 /* LongPressTextField.swift */,
+				D09D82831E68E3160054F240 /* Application */,
+				D09D82841E68E3280054F240 /* Controllers */,
+				D09D82851E68E3650054F240 /* Library */,
 				D0618C5B1CE6564C00449469 /* Assets.xcassets */,
 				D0618C5D1CE6564C00449469 /* LaunchScreen.storyboard */,
-				D0618C601CE6564C00449469 /* Info.plist */,
 			);
 			path = Resistor;
 			sourceTree = "<group>";
@@ -143,6 +166,56 @@
 			path = ResistorUITests;
 			sourceTree = "<group>";
 		};
+		D09D82831E68E3160054F240 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D0618C541CE6564C00449469 /* AppDelegate.swift */,
+				D0618C601CE6564C00449469 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D09D82841E68E3280054F240 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0618C581CE6564C00449469 /* Main.storyboard */,
+				D09D82861E68E3B50054F240 /* Components */,
+				D0618C561CE6564C00449469 /* 4BandViewController.swift */,
+				D063EF841CFC609C00381C53 /* 5BandViewController.swift */,
+				D063EF861CFD1AA900381C53 /* 6BandViewController.swift */,
+				D063EF821CFC5FFD00381C53 /* BandPagesViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D09D82851E68E3650054F240 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D058F6121CE84405002DB071 /* extensions.swift */,
+			);
+			name = Library;
+			path = Librarry;
+			sourceTree = "<group>";
+		};
+		D09D82861E68E3B50054F240 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D0618C821CE677DE00449469 /* ResistancePicker.swift */,
+				D058F6101CE82482002DB071 /* LongPressTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DA020FD4BE6A7B866B9887C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAB3FE61075256952003D5DE /* Pods_Resistor.framework */,
+				783B318CC34FCDC1DCA57A23 /* Pods_ResistorTests.framework */,
+				D0E15669BA93276BDECAAEC1 /* Pods_ResistorUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +223,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0618C791CE6564D00449469 /* Build configuration list for PBXNativeTarget "Resistor" */;
 			buildPhases = (
+				6CB71E89540D0E9FDFA62C45 /* [CP] Check Pods Manifest.lock */,
 				D0618C4D1CE6564C00449469 /* Sources */,
 				D0618C4E1CE6564C00449469 /* Frameworks */,
 				D0618C4F1CE6564C00449469 /* Resources */,
+				61C9FD67DC420821C03AF39D /* [CP] Embed Pods Frameworks */,
+				2DED558D806940A10BF8CCC8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0618C7C1CE6564D00449469 /* Build configuration list for PBXNativeTarget "ResistorTests" */;
 			buildPhases = (
+				ABC19F991E58C636361108E9 /* [CP] Check Pods Manifest.lock */,
 				D0618C611CE6564C00449469 /* Sources */,
 				D0618C621CE6564C00449469 /* Frameworks */,
 				D0618C631CE6564C00449469 /* Resources */,
+				3964E9C455F8A45DADDA816E /* [CP] Embed Pods Frameworks */,
+				E595C89EB67DBE3B2E4FF236 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +264,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0618C7F1CE6564D00449469 /* Build configuration list for PBXNativeTarget "ResistorUITests" */;
 			buildPhases = (
+				2497E47D599BEEB9FB428332 /* [CP] Check Pods Manifest.lock */,
 				D0618C6C1CE6564D00449469 /* Sources */,
 				D0618C6D1CE6564D00449469 /* Frameworks */,
 				D0618C6E1CE6564D00449469 /* Resources */,
+				CB8CAC366D5F225A121E13D4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,13 +293,16 @@
 					D0618C501CE6564C00449469 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 747EALPHEP;
+						LastSwiftMigration = 0820;
 					};
 					D0618C641CE6564C00449469 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = D0618C501CE6564C00449469;
 					};
 					D0618C6F1CE6564D00449469 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = D0618C501CE6564C00449469;
 					};
 				};
@@ -269,6 +353,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2497E47D599BEEB9FB428332 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2DED558D806940A10BF8CCC8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Resistor/Pods-Resistor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3964E9C455F8A45DADDA816E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResistorTests/Pods-ResistorTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61C9FD67DC420821C03AF39D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Resistor/Pods-Resistor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6CB71E89540D0E9FDFA62C45 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ABC19F991E58C636361108E9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CB8CAC366D5F225A121E13D4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResistorUITests/Pods-ResistorUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E595C89EB67DBE3B2E4FF236 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ResistorTests/Pods-ResistorTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D0618C4D1CE6564C00449469 /* Sources */ = {
@@ -422,6 +629,7 @@
 		};
 		D0618C7A1CE6564D00449469 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F754F8D73E627805A3833D5 /* Pods-Resistor.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -432,11 +640,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.Resistor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2d94a85c-b471-41f1-a54b-9a08ce104be5";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D0618C7B1CE6564D00449469 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DFEE052F2FBAE4DBCD2DAF0 /* Pods-Resistor.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -447,51 +657,60 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.Resistor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2d94a85c-b471-41f1-a54b-9a08ce104be5";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		D0618C7D1CE6564D00449469 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C7A9E0DD917C5AB326C5F7A /* Pods-ResistorTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ResistorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.ResistorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Resistor.app/Resistor";
 			};
 			name = Debug;
 		};
 		D0618C7E1CE6564D00449469 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 953F22D3422126286A1E67EF /* Pods-ResistorTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = ResistorTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.ResistorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Resistor.app/Resistor";
 			};
 			name = Release;
 		};
 		D0618C801CE6564D00449469 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FACAA06E746A919B5759E28 /* Pods-ResistorUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ResistorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.ResistorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Resistor;
 			};
 			name = Debug;
 		};
 		D0618C811CE6564D00449469 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AE3775AB8423539D17A2992 /* Pods-ResistorUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = ResistorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.justinoroz.ResistorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Resistor;
 			};
 			name = Release;
